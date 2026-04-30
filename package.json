@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "dev": "node backend/server.js",
+    "start": "node backend/server.js",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run"
+  }
+}

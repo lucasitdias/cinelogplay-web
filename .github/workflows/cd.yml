@@ -1,0 +1,17 @@
+name: CD - Deploy
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    name: Deploy Produção
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy (placeholder)
+        run: echo "Aqui vai deploy Vercel / Render / AWS"
