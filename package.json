@@ -1,8 +1,24 @@
 {
+  "name": "cinelogplay-backend",
+  "version": "1.0.0",
+  "description": "API backend para CinelogPlay",
+  "main": "server.js",
+  "type": "module",
   "scripts": {
-    "dev": "node backend/server.js",
-    "start": "node backend/server.js",
-    "cy:open": "cypress open",
-    "cy:run": "cypress run"
+    "dev": "node --watch server.js",
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["cinema", "api", "node"],
+  "author": "CinelogPlay",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.x",
+    "cors": "^2.8.x",
+    "dotenv": "^16.x",
+    "pg": "^8.x"
+  },
+  "devDependencies": {
+    "nodemon": "^3.x"
   }
 }
