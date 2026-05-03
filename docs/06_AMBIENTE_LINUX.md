@@ -3,7 +3,7 @@ Ambiente Linux — Instalação e Configuração
 
 ## LEIA COM ATENÇÃO!!!
 
-Este passo a passo detalha o processo completo para configurar o ambiente de desenvolvimento no Linux, garantindo que todos os integrantes utilizem a mesma base para desenvolvimento do projeto CineLog.
+Este passo a passo detalha o processo completo para configurar o ambiente de desenvolvimento no Linux, garantindo que todos os integrantes utilizem a mesma base para desenvolvimento do projeto CinelogPlay.
 
 - Git v2.53 (recomendado)
 - fnm
@@ -270,10 +270,10 @@ version: "3.9"
 services:
   postgres:
     image: postgres:16
-    container_name: postgres-cinelog
+    container_name: postgres-CinelogPlay
     environment:
       POSTGRES_PASSWORD: senha_segura
-      POSTGRES_DB: cinelog
+      POSTGRES_DB: CinelogPlay
     ports:
       - "5432:5432"
     volumes:
@@ -319,9 +319,9 @@ docker pull postgres:16
 
 ```bash
 docker run -d \
-  --name postgres-cinelog \
+  --name postgres-CinelogPlay \
   -e POSTGRES_PASSWORD=senha_segura \
-  -e POSTGRES_DB=cinelog \
+  -e POSTGRES_DB=CinelogPlay \
   -p 5432:5432 \
   -v postgres_data:/var/lib/postgresql/data \
   postgres:16
@@ -429,8 +429,8 @@ pnpm exec jest --version   # Deve mostrar versão 29.x
 ### Clonar (Homologação)
 
 ```bash
-git clone https://github.com/Frontend-e-DevOps-Projeto-CineLog/CineLog.git
-cd CineLog
+git clone https://github.com/Frontend-e-DevOps-Projeto-CinelogPlay/CinelogPlay.git
+cd CinelogPlay
 ```
 
 ---
@@ -479,7 +479,7 @@ DB_HOST=postgres
 DB_PORT=5432
 DB_USER=postgres
 DB_PASSWORD=senha_segura
-DB_NAME=cinelog
+DB_NAME=CinelogPlay
 
 # Supabase (produção)
 SUPABASE_URL=

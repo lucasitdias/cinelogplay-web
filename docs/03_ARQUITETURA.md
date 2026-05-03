@@ -1,8 +1,8 @@
-# Arquitetura do Site - CineLog
+# Arquitetura do Site - CinelogPlay
 
 ## Índice
 
-- [Arquitetura do Site - CineLog](#arquitetura-do-site---cinelog)
+- [Arquitetura do Site - CinelogPlay](#arquitetura-do-site---cinelogplay)
   - [Índice](#índice)
   - [Proposta](#proposta)
   - [Visão Geral da Arquitetura](#visão-geral-da-arquitetura)
@@ -54,12 +54,12 @@ Definir **como o sistema é estruturado internamente**, garantindo:
 
 ## Visão Geral da Arquitetura
 
-O CineLog segue uma arquitetura baseada em:
+O CinelogPlay segue uma arquitetura baseada em:
 
 - Frontend desacoplado
 - Backend com API REST
 - Banco de dados relacional
-- Sistema resiliente (funciona sem backend)
+- Sistema resiliente (funciona sem backend e sem banco de dados)
 
 ---
 
@@ -80,21 +80,22 @@ Banco de Dados (PostgreSQL)
 ## Estrutura do Projeto
 
 ```
-CineLog/
+CinelogPlay/
 │
 ├── frontend/
 │   ├── index.html
 │   ├── pages/
 │   ├── css/
 │   ├── js/
-│   └── data/ (mock)
+│   ├── data/ (mock)
+│   └── .env
 │
 ├── backend/
 │   ├── server.js
 │   ├── routes/
 │   ├── controllers/
 │   ├── services/
-│   ├── database/
+│   ├── config/
 │   └── mock/
 │
 ├── cypress/
@@ -103,6 +104,8 @@ CineLog/
 │
 └── .github/workflows/
 ```
+
+O uso de `.env` no frontend é destinado à configuração de URLs da API e variáveis de ambiente em contexto de deploy.
 
 ---
 
@@ -153,7 +156,6 @@ Responsável por:
 
 - PostgreSQL
 
----
 
 ## Fluxo de Comunicação
 
@@ -163,7 +165,16 @@ Responsável por:
 2. Frontend chama API:
 
 ```js
-fetch("/api/filmes");
+fetch("/api/filmes")
+  .then(res => res.json())
+  .then(json => json.data);
+```
+
+```js
+// fallback automático (modo offline)
+fetch("/frontend/data/filmes.json")
+  .then(res => res.json())
+  .then(json => json.data);
 ```
 
 3. Backend processa
@@ -179,7 +190,9 @@ fetch("/api/filmes");
 Se API falhar:
 
 ```js
-fetch("/data/filmes.json");
+fetch("/frontend/data/filmes.json")
+  .then(res => res.json())
+  .then(json => json.data);
 ```
 
 ---
@@ -189,7 +202,10 @@ fetch("/data/filmes.json");
 Se banco falhar:
 
 ```js
-return res.json(mockFilmes);
+return res.json({
+  success: true,
+  data: mockFilmes
+});
 ```
 
 ---
@@ -198,6 +214,7 @@ return res.json(mockFilmes);
 
 - Sistema nunca quebra
 - Sempre retorna dados
+- Sempre mantém o padrão de resposta da API
 
 ---
 
@@ -235,9 +252,11 @@ return res.json(mockFilmes);
 
 ## Endpoints da API
 
-- `GET /api/filmes`
-- `GET /api/diretores`
-- `POST /api/contato`
+- GET /api/filmes
+- GET /api/filmes/:id
+- GET /api/diretores
+- GET /api/diretores/:id
+- POST /api/contato
 
 ---
 
@@ -250,7 +269,7 @@ backend/
 ├── routes/
 ├── controllers/
 ├── services/
-├── database/
+├── config/
 ├── mock/
 ```
 
@@ -259,7 +278,7 @@ backend/
 - routes → define endpoints
 - controllers → recebe requisição
 - services → lógica de negócio
-- database → conexão
+- config → configuração e conexão com banco
 - mock → fallback
 
 ---
@@ -291,24 +310,44 @@ frontend/
 - Uso de mock (frontend e testes)
 - API REST padronizada
 
+- Todas as respostas da API devem obrigatoriamente seguir o padrão:
+
+    Sucesso:
+
+```
+{
+  "success": true,
+  "data": [...]
+}
+
+Erro:
+{
+  "success": false,
+  "error": "mensagem descritiva"
+}
+```
 ---
 
 ## Fluxo de desenvolvimento
 
-1. Criar funcionalidade no frontend com mock
-2. Criar endpoint no backend
-3. Integrar frontend com API
-4. Criar testes Cypress (com intercept)
-5. Validar localmente
-6. Subir PR
+1. Atualizar branch local `dev`
+2. Criar branch `feature/<area>-nome`
+3. Desenvolver funcionalidade (frontend com mock ou backend)
+4. Criar/ajustar testes (Cypress com intercept)
+5. Validar funcionamento local (com e sem backend)
+6. Abrir Pull Request para `dev`
+7. Aguardar revisão
+8. Realizar ajustes se necessário
+9. Merge após aprovação
 
 ---
 
 ## Integração com CI/CD
 
-- Cypress roda no CI
-- Backend não é obrigatório para testes
-- Deploy automatizado
+- Pipeline CI executa em todos os Pull Requests
+- Cypress roda com dados mock (sem depender do backend)
+- Falha na pipeline bloqueia o merge
+- Deploy ocorre automaticamente após validação
 
 ---
 

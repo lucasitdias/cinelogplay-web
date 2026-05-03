@@ -1,8 +1,8 @@
-# Plano de Testes — CineLog
+# Plano de Testes — CinelogPlay
 
 ## Proposta
 
-Este documento define como o sistema CineLog será testado, garantindo que todas as funcionalidades estejam corretas, estáveis e alinhadas com os requisitos do projeto.
+Este documento define como o sistema CinelogPlay será testado, garantindo que todas as funcionalidades estejam corretas, estáveis e alinhadas com os requisitos do projeto.
 
 ---
 

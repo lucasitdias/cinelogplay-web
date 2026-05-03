@@ -1,8 +1,8 @@
-# Versionamento — CineLog
+# Versionamento — CinelogPlay
 
 ## Proposta
 
-Este documento define como o versionamento do projeto deve ser realizado utilizando Git e GitHub, garantindo:
+Definir como versionar código corretamente usando Git, garantindo:
 
 - Histórico organizado
 - Rastreabilidade de mudanças
@@ -15,26 +15,43 @@ Este documento define como o versionamento do projeto deve ser realizado utiliza
 
 - Ferramenta: Git
 - Repositório: GitHub (privado)
+- Branch de integração contínua, homologação `dev` 
 - Branch principal: `main`
+
+```
+┌─ PRODUÇÃO ─┐
+│   main     │  Entrega final, usuários
+└─────┬──────┘
+      │ (merge apenas quando pronto)
+      │
+┌─────▼──────────┐
+│      dev       │  Integração contínua, homologação
+└─────┬──────────┘
+      │ (merges frequentes)
+      │
+┌─────▼────────────────────┐
+│  feature/*               │  Desenvolvimento
+│  (criadas de dev)        │
+└──────────────────────────┘
+```
 
 ---
 
-## Padronização de Ferramentas
+## Ferramentas Obrigatórias
 
-Todo o projeto deve utilizar:
+### Gestor de Pacotes:
 
-- Gerenciador de pacotes: **pnpm**
-- Node.js: **v20.20.2 LTS**
+- pnpm v9.x (OBRIGATÓRIO)
+- Node.js: v20.20.2 LTS
 
-## É proibido o uso de:
+### Proibido Usar:
+-  `npm`
+-  `yarn`
 
-- npm
-- yarn
-
-Motivo:
-
-- Garantir consistência entre ambiente local e CI/CD
-- Evitar conflitos de lockfile
+**Motivo ?** 
+- Consistência entre máquinas
+- Sincronização com CI/CD
+- Evita problemas com lockfile
 
 ---
 
@@ -58,15 +75,6 @@ O projeto utiliza o padrão definido em `BRANCHING.md`:
 
 ---
 
-## Frequência de Commits
-
-### Regra obrigatória:
-
-- Commits devem ser frequentes
-- Evitar commits grandes e genéricos
-
----
-
 ### Boa prática:
 
 - Commitar a cada:
@@ -85,43 +93,65 @@ O projeto utiliza o padrão definido em `BRANCHING.md`:
 
 ## Padrão de Commits
 
-Formato obrigatório:
+### Formato Obrigatório:
 
-```id="commit-format"
+```
 tipo: descrição clara
 ```
 
+### Tipos Permitidos:
+
+| Tipo | Quando Usar | Exemplo |
+|------|-----------|---------|
+| `feat:` | Nova funcionalidade | `feat: implementar página diretores` |
+| `fix:` | Correção de bug | `fix: erro na validação email` |
+| `refactor:` | Melhoria interna | `refactor: reorganizar estrutura pastas` |
+| `test:` | Testes | `test: testes Cypress home` |
+| `docs:` | Documentação | `docs: atualizar README.md` |
+| `style:` | Formatação | `style: formatar com Prettier` |
+| `chore:` | Ajustes gerais | `chore: atualizar dependências` |
+
 ---
 
-### Tipos permitidos:
+### Exemplos Corretos:
 
-- `feat:` nova funcionalidade
-- `fix:` correção de bug
-- `docs:` documentação
-- `style:` formatação
-- `refactor:` melhoria interna
-- `test:` testes
-- `chore:` ajustes gerais
-
----
-
-### Exemplos:
-
-```id="commit-examples"
-feat: adicionar página de diretores
-fix: corrigir erro na rota /api/filmes
-docs: atualizar CI/CD.md
+```bash
+git commit -m "feat: criar estrutura HTML navbar"
+git commit -m "feat: estilizar navbar com CSS"
+git commit -m "feat: adicionar links navigation"
 ```
 
+```bash
+git commit -m "feat: implementar fallback localStorage"
+git commit -m "fix: corrigir erro rota /api/filmes"
+git commit -m "test: testes responsividade mobile"
+git commit -m "docs: atualizar WORKFLOW.md"
+git commit -m "refactor: melhorar estrutura services"
+```
+
+### Exemplos Incorretos:
+
+```bash
+git commit -m "feat: homepage completa com 50 mudanças"
+```
+
+```bash
+ "update"
+ "ajustes"
+ "código novo"
+ "fix bug"
+ "wip"
+```
 ---
 
 ## Organização do Histórico
 
-O histórico deve permitir:
+O histórico **deve permitir**:
 
-- Entender o que foi feito
-- Identificar quando foi feito
-- Saber quem fez
+-  Entender O QUE foi feito (descrição clara)
+-  Saber QUANDO foi feito (timestamp)
+-  Identificar QUEM fez (autor)
+-  Rastrear problema até origem
 
 ---
 
@@ -146,6 +176,54 @@ git pull origin main
 
 ---
 
+## Fluxo de Commits
+
+#### 1. Ver o que mudou
+```bash
+git status
+```
+
+#### 2. Adicionar arquivo ao staging
+
+```bash
+git add arquivo.js
+```
+
+#### 3. Commitar
+
+```bash
+git commit -m "feat: adicionar validação email"
+```
+
+#### 4. Quando terminar, fazer push
+
+```bash
+git push origin feature/seu-branch
+```
+
+#### 5. Sincronização no ambiente de desenvolvimento
+
+  -  `dev` atualiza merge:
+
+```bash
+git merge dev
+```
+
+#### 6. Depois do Merge em `dev`
+
+```bash
+git checkout dev
+git pull origin dev
+
+# dev agora tem suas alterações + de outros
+
+git branch -d feature/seu-branch
+
+# Deletar branch local após finalizar
+```
+
+---
+
 ## Sincronização de Branch
 
 Durante o desenvolvimento:
@@ -162,14 +240,14 @@ Resolver conflitos antes de continuar
 
 Quando o projeto atingir um marco importante, deve-se criar uma tag:
 
-```bash id="create-tag"
-git tag v1.0.0
+```bash
+git tag -a v1.0.0 -m "Versão 1.0.0 - Release inicial"
 git push origin v1.0.0
 ```
 
 ---
 
-### Padrão de versão
+### Padrão Semântico:
 
 ```
 MAJOR.MINOR.PATCH
@@ -179,13 +257,13 @@ MAJOR.MINOR.PATCH
 - MINOR → novas funcionalidades
 - PATCH → correções
 
----
 
 ### Exemplos:
 
-- v1.0.0 → primeira versão estável
+- v1.0.0 → primeira versão
 - v1.1.0 → nova funcionalidade
 - v1.1.1 → correção de bug
+- v2.0.0 → grandes mudanças
 
 ---
 
@@ -201,15 +279,38 @@ Toda mudança relevante deve:
 
 ## Arquivos que NÃO devem ser versionados
 
-Garantir `.gitignore` contendo:
+`.gitignore` deve conter:
 
 ```
+# Dependências
 node_modules/
-.env
-dist/
-coverage/
-```
+pnpm-lock.yaml (apenas em monorepo)
 
+# Ambiente
+.env
+.env.local
+.env.*.local
+
+# Build
+dist/
+build/
+
+# Testes
+coverage/
+
+# Editor
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+```
 ---
 
 ## Responsabilidade
@@ -226,10 +327,12 @@ Cada membro deve:
 ## Erros a evitar
 
 - Commit direto na `main`
-- Commits genéricos (ex: "update")
+- Commit direto em `dev`
+- Commits genéricos ( tipo: "update")
 - Não atualizar branch antes de trabalhar
 - Ignorar conflitos
-- Subir arquivos sensíveis
+- Subir arquivos sensíveis `.env` ou `node_modules`
+- Usar `git push --force` em `main`/`dev`
 
 ---
 

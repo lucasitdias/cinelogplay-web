@@ -1,4 +1,4 @@
-# Requisitos do Site — CineLog
+# Requisitos do Site — CinelogPlay
 
 Este documento define **todos os requisitos obrigatórios do projeto**, garantindo clareza sobre o que deve ser desenvolvido, evitando dúvidas e desalinhamento entre os membros da equipe.
 
@@ -42,7 +42,7 @@ O sistema deve exibir diretores contendo:
 - Nome
 - Nacionalidade
 - Principais obras
-- Imagem
+- Imagem (opcional — utilizada para exibição visual no frontend)
 
 ---
 
@@ -58,11 +58,20 @@ O sistema deve permitir envio de mensagens contendo:
 
 ## RF05 — Integração com Backend
 
-O frontend deve consumir dados via API:
+O frontend deve consumir dados via API quando disponível:
 
 - `/api/filmes`
 - `/api/diretores`
 - `/api/contato`
+
+Comportamento obrigatório:
+
+- API disponível → consumir backend
+- API indisponível → fallback automático para dados locais
+- API não configurada ou variável de ambiente ausente → utilizar mock automaticamente
+
+
+Todas as respostas devem seguir o padrão definido em RF11.
 
 ---
 
@@ -70,8 +79,10 @@ O frontend deve consumir dados via API:
 
 O sistema deve funcionar sem backend:
 
-- Utilizar dados locais (`/data/*.json`)
+- Utilizar dados locais (`/frontend/data/*.json`)
 - Ativar automaticamente quando API não estiver disponível
+- Nunca quebrar a interface do usuário
+- O frontend nunca pode quebrar, independentemente da disponibilidade da API
 
 ---
 
@@ -79,8 +90,10 @@ O sistema deve funcionar sem backend:
 
 O backend deve funcionar sem banco:
 
-- Retornar dados mock (`/mock/*.json`)
+- Retornar dados mock (`/backend/mock/*.json`)
 - Não interromper o funcionamento da API
+- Garantir resposta no padrão definido
+- A API nunca pode parar de responder
 
 ---
 
@@ -108,9 +121,37 @@ O sistema deve possuir:
 O sistema deve possuir testes E2E que validem:
 
 - Carregamento de páginas
-- Navegação
-- Interações
-- Formulário
+- Navegação via navbar
+- Interações do usuário
+- Formulário de contato
+- Responsividade
+
+Regras obrigatórias:
+
+- Testes devem utilizar `cy.intercept()` para mockar requisições
+- Testes não devem depender da API real
+
+---
+
+## RF11 — Padrão de Resposta da API
+
+A API deve retornar respostas no seguinte formato:
+
+Sucesso:
+
+```
+{
+  "success": true,
+  "data": [...]
+}
+
+Erro:
+
+{
+  "success": false,
+  "error": "mensagem descritiva"
+}
+```
 
 ---
 
@@ -160,15 +201,23 @@ Todos os membros devem seguir:
 ## RNF06 — Versionamento
 
 - Uso obrigatório de Git
-- Uso de branches
-- Uso de Pull Requests
+- Branch `main` → produção
+- Branch `dev` → integração
+- Uso obrigatório de branches `feature/*`
+- Proibido commit direto em `main` e `dev`
+- Uso obrigatório de Pull Requests para `dev`
+- Merge somente após aprovação
+- Integração final para `main` apenas após validação completa do projeto
 
 ---
 
 ## RNF07 — CI/CD
 
 - Testes automatizados obrigatórios
-- Deploy automático
+- CI deve rodar automaticamente em todos os Pull Requests para a branch `dev`
+- Falha na pipeline deve bloquear o merge
+- CD (deploy) só deve ocorrer após validação final do projeto
+- Deploy NÃO deve ocorrer automaticamente em branches de desenvolvimento
 
 ---
 
@@ -189,15 +238,37 @@ Sistema deve funcionar em navegadores modernos:
 
 ---
 
-# Requisitos de Testes
+## RNF10 — Fluxo de Trabalho (Obrigatório)
 
-- Testes devem rodar sem backend real
-- Uso obrigatório de `cy.intercept`
-- Uso de fixtures
+O desenvolvimento deve seguir o fluxo:
+
+1. Criar branch a partir da dev
+2. Desenvolver funcionalidade
+3. Abrir Pull Request para dev
+4. CI executa automaticamente
+5. Aguardar revisão
+6. Realizar merge após aprovação
+
+Regras:
+
+- PR é obrigatório
+- Não é permitido commit direto em dev ou main
+- Todo PR deve ser revisado
 
 ---
 
-# Requisitos de Deploy
+# Requisitos Operacionais
+
+## Requisitos de Testes
+
+- Testes devem ser independentes da API real
+- Uso obrigatório de `cy.intercept()` para mockar requisições
+- Uso de fixtures para dados de teste
+- Testes devem passar mesmo com backend desligado
+
+---
+
+## Requisitos de Deploy
 
 - Backend deve ser publicado antes do frontend
 - Frontend deve usar variável `.env`
@@ -205,7 +276,7 @@ Sistema deve funcionar em navegadores modernos:
 
 ---
 
-# Requisitos da Entrega
+## Requisitos da Entrega
 
 Deve conter:
 
@@ -222,10 +293,12 @@ Deve conter:
 # Critérios
 
 - Todas as funcionalidades devem funcionar
-- Sistema não quebrar sem backend
-- Sistema não quebrar sem banco
-- Testes passam
-- Deploy online
+- Sistema não pode quebrar sem backend
+- Sistema não pode quebrar sem banco
+- Frontend deve funcionar com mock
+- Backend deve funcionar com fallback
+- Testes devem passar (mesmo sem backend)
+- Deploy online funcional
 - Documentação completa
 
 ---

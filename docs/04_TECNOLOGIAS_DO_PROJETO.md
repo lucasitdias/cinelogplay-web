@@ -128,16 +128,27 @@
 ## Versionamento
 
 - Repositório privado
-- Branch `main`
+
+- Branch `main` → produção
+- Branch `dev` → integração
 
 ### Branches
 
-- feature/frontend → Lucas
-- feature/tests → Matheus
-- feature/devops → Henrique
-- feature/backend → Henrique + Lucas
+- Uso obrigatório de branches no padrão:
+  - feature/<area>-nome
 
-- PR obrigatório
+Exemplos:
+- feature/frontend-home
+- feature/backend-api-filmes
+- feature/tests-navbar
+- feature/devops-pipeline
+
+### Regras obrigatórias
+
+- Proibido commit direto em `main` e `dev`
+- Toda alteração deve ser feita via branch `feature/*`
+- Pull Request obrigatório para `dev`
+- Merge somente após aprovação
 
 ---
 

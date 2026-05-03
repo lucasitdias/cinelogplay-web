@@ -98,7 +98,7 @@ Cada versão deve seguir este padrão:
 
 ### Added
 
-- Sistema completo CineLog
+- Sistema completo CinelogPlay
 - Frontend com páginas:
   - Home
   - Diretores
