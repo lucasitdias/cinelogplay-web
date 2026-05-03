@@ -1,8 +1,8 @@
-# Workflow de Desenvolvimento - CineLog
+# Workflow de Desenvolvimento - CinelogPlay
 
 ## Índice
 
-- [Workflow de Desenvolvimento - CineLog](#workflow-de-desenvolvimento---cinelog)
+- [Workflow de Desenvolvimento - CinelogPlay](#workflow-de-desenvolvimento---CinelogPlay)
   - [Índice](#índice)
   - [Proposta](#proposta)
   - [Visão Geral](#visão-geral)

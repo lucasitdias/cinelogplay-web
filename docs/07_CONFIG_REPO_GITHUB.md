@@ -1,6 +1,6 @@
-# CineLog — Guia de Configuração do Repositório
+# CinelogPlay — Guia de Configuração do Repositório
 
-Este documento descreve **todas as configurações realizadas no repositório GitHub** do projeto CineLog, com explicações detalhadas, decisões tomadas e orientações para manutenções futuras do Time.
+Este documento descreve **todas as configurações realizadas no repositório GitHub** do projeto CinelogPlay, com explicações detalhadas, decisões tomadas e orientações para manutenções futuras do Time.
 
 ---
 
@@ -21,13 +21,20 @@ Garantir que o projeto tenha:
 
 ---
 
-# ESTRUTURA DO PROJETO
+# ESTRUTURA DO REPOSITÓRIO
 
 ```
-/frontend
-/backend
-/docs
-README.md
+cinelogplay-web/
+├── frontend/
+├── backend/
+├── cypress/
+├── docs/
+├── .github/
+│   └── workflows/
+│       └── ci-cd.yml (será criado em 18_CI_CD.md)
+├── .gitignore
+├── README.md
+└── package.json (raiz)
 ```
 
 ---
@@ -104,8 +111,8 @@ README.md
 
 **Ativado**
 
-- Merge commit
-- Squash merge
+- Merge commit (mantém histórico completo)
+- Squash merge (junta commits - padrão do projeto)
 
 **Desativado**
 
@@ -126,11 +133,11 @@ README.md
 
 ### Rebase
 
-- Evitado por ser mais complexo e professor não explicou o cenaário de uso
+- Evitado por ser mais complexo e professor não explicou o cenário de uso
 
 ---
 
-# PROTEÇÃO DE BRANCH (MAIN)
+# PROTEÇÃO DE BRANCH
 
 Configuração feita em:
 
@@ -146,61 +153,82 @@ Enforcement: **Active**
 
 ---
 
-### Target
+## BRANCHES PROTEGIDAS
 
-Default branch (`main`)
+### 1. Branch `main` (PRODUÇÃO)
 
----
+**Target:** `main`
 
-# REGRAS CONFIGURADAS
+> **Regras obrigatórias:**
 
-### Restrict updates
-
+#### Restrict updates
 - Impede push direto na branch main
 
-### Restrict deletions
-
+#### Restrict deletions
 - Impede deletar a branch
 
-### Block force pushes
-
+#### Block force pushes
 - Impede uso de `git push --force`
 
----
+#### Pull Request (OBRIGATÓRIO)
+- Todo código deve passar por PR
 
-# PULL REQUEST (OBRIGATÓRIO)
+**Required approvals:** `1`
 
-### Require a pull request before merging
-
-- Todo código deve passar por PR é obrigatório
-
----
-
-### Required approvals: **1**
-
-### Motivo:
-
+**Motivo:**
 - Garante revisão mínima
+- Aprovação por qualquer membro da equipe
 - Evita travar fluxo
-- Aprovação deve ser realizada por alguém do time
 
----
+#### Require conversation resolution
+- Obriga resolver comentários antes do merge
 
-### Dismiss stale approvals
+
+#### Dismiss stale approvals
 
 - Remove aprovação quando novos commits são adicionados
 
----
 
-### Require approval of most recent push
+#### Require approval of most recent push
 
 - Exige nova aprovação após alterações
 
 ---
 
-### Require conversation resolution
+### 2. Branch `dev` (HOMOLOGAÇÃO)
 
+**Target:** `dev`
+
+> **Regras obrigatórias:**
+
+#### Restrict deletions
+- Impede deletar a branch
+
+#### Pull Request (OBRIGATÓRIO)
+- Todo código deve passar por PR
+
+**Required approvals:** `1`
+
+**Motivo:**
+- Garante qualidade antes de integração
+- Evita merge de código quebrado
+- Permite fluxo contínuo
+
+#### Require conversation resolution
 - Obriga resolver comentários antes do merge
+
+**Diferença de `main`:**
+- `dev` é menos restritiva (permite rebase e force push para correções)
+- `main` é totalmente restritiva (apenas merges seguros)
+
+#### Dismiss stale approvals
+
+- Remove aprovação quando novos commits são adicionados
+
+
+#### Require approval of most recent push
+
+- Exige nova aprovação após alterações
 
 ---
 
@@ -210,11 +238,22 @@ Default branch (`main`)
 
 ### Estado atual:
 
-- Nenhum check configurado ainda
+- Configurado para `dev` e `main`
+
+### Quando ativado:
+
+- Cypress deve passar
+- Testes backend devem passar
 
 ### Motivo:
 
-- CI será configurado posteriormente
+- Garante que código quebrado não seja mergeado
+
+
+### Quando CI estiver pronto:
+Ativar `Require status checks to pass`:
+- [ ] GitHub Actions CI deve passar
+- [ ] Cypress deve ter sucesso
 
 ---
 
@@ -236,10 +275,6 @@ Usar quando:
 
 - CI/CD completo já estiver funcionando
 
-Situação atual:
-
-- Não utilizar (ativar futuramente)
-
 ---
 
 ## Require code scanning results
@@ -258,7 +293,7 @@ Usar quando:
 
 Situação atual:
 
-- Não utilizar não é prioridade agora
+- Não utilizar agora, não é prioridade
 
 ---
 
@@ -292,28 +327,42 @@ Situação atual:
 
 ---
 
-# FLUXO DE TRABALHO DEFINIDO EM EQUIPE
 
-## Processo padrão
+# FLUXO DE TRABALHO EM EQUIPE
 
-1. Criar branch
+### Processo padrão:
 
+1. Atualizar `dev`:
+```bash
+git checkout dev
+git pull origin dev
 ```
-feature/nome-da-feature
+
+2. Criar branch feature a partir de `dev`:
+```bash
+git checkout -b feature/<area>-nome-da-feature
 ```
 
-2. Desenvolver
+3. Desenvolver
 
-3. Commitar
+4. Commitar
 
-4. Abrir Pull Request
+5. Abrir Pull Request:
+   - **Base:** `dev` (para homologação/testes)
+   - **Explicar o que foi feito**
 
-5. Aguardar:
+6. Comunicar no grupo (WhatsApp)
 
-- CI passar
-- 1 aprovação
+7. Aguardar:
+   - CI passar em `dev`
+   - 1 aprovação de qualquer membro
 
-6. Merge via GitHub
+8. Merge na `dev`
+
+9. Após validação completa de todas as features da etapa:
+   - Criar PR de `dev` para `main`
+   - Merge em `main` (entrega para produção)
+
 
 ---
 

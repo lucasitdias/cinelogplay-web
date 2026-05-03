@@ -1,6 +1,6 @@
 
 ---
-<p align="center"> <img src="img/cinelog_play.png" alt="CineLog Banner" width="600"/> </p>
+<p align="center"> <img src="img/cinelogplay.png" alt="CinelogPlay Banner" width="600"/> </p>
 
 ---
 
@@ -145,7 +145,7 @@ Responsável por:
 
 ```bash
 git clone <url-do-repo>
-cd CineLog
+cd CinelogPlay
 ````
 
 ---
@@ -236,7 +236,7 @@ Após sucesso no CI:
 ## Estrutura do Projeto <a id="estrutura-do-projeto"></a>
 
 ```bash
-CineLog/
+CinelogPlay/
 │
 ├── frontend/
 ├── backend/

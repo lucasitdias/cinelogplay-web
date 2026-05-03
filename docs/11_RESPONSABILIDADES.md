@@ -1,173 +1,322 @@
-# Responsabilidades da Equipe — CineLog
+# Responsabilidades da Equipe — CinelogPlay
 
 ## Proposta
 
-Definir de forma clara e obrigatória **quem faz o quê dentro do projeto**, garantindo:
+Definir **quem faz o quê dentro do projeto**, garantindo:
 
-- Organização
+- Clareza total sobre responsabilidades
 - Distribuição equilibrada de tarefas
-- Evitar sobrecarga
-- Evitar retrabalho
+- Evitar sobrecarga ou confusão
 - Garantir entrega completa
 
-Este documento é nossa **regra oficial do projeto**.
+Este documento é nossa **regra do projeto**.
 
 ---
 
-## Estrutura da Equipe
+## Estrutura da equipe
 
-A equipe está dividida nas seguintes áreas:
+| Área | Responsável | Apoio | Status |
+|------|-------------|-------|--------|
+| Frontend | Lucas (lucasitdev) | -   | -
+| Backend | Henrique (IronVisuals) | Lucas | -
+| Testes (QA) | Matheus (Mbolsanello) | Winley | -
+| DevOps | Henrique (IronVisuals) | Winley | -
+| Documentação | **Todos** | -  | Em andamento
 
-- Frontend
-- Backend
-- Testes (QA)
-- DevOps
-- Gestão/Organização (todos)
-
+###
 ---
 
 # Frontend
 
-## Responsabilidades: Lucas (lucasitdev)
+### Responsabilidades: `Lucas (lucasitdev)`
 
 - Desenvolver toda interface do sistema
-- Implementar telas conforme ESCOPO
-- Aplicar padrões do UI_GUIDELINES
+- Implementar telas conforme `01_ESCOPO_DO_PROJETO.md`
+- Aplicar padrões definidos em `13_UI_GUIDELINES.md`
 - Consumir API do backend
-- Garantir responsividade
-- Criar validações visuais (formulários)
+- Garantir responsividade (mobile, tablet, desktop)
+- Criar validações visuais em formulários
+- Testar frontend localmente
 
-## Deve seguir:
+### Deve seguir:
 
-- ESCOPO_DO_PROJETO.md
-- UI_GUIDELINES.md
-- REQUISITOS.md
-- WORKFLOW.md
+1. **01_ESCOPO_DO_PROJETO.md** → O que deve ser feito
+2. **02_REQUISITOS.md** → Requisitos funcionais
+3. **03_ARQUITETURA.md** → Como estruturar
+4. **04_TECNOLOGIAS_DO_PROJETO.md** → Stack utilizada
+5. **13_UI_GUIDELINES.md** → Padrões visuais
+6. **08_WORKFLOW.md** → Como trabalhar
+7. **10_BRANCHING.md** → Como criar branches
+8. **09_VERSIONAMENTO.md** → Padrões de commit
 
-## Entregas obrigatórias:
 
-- Home completa
-- Página de diretores
-- Página de contato
-- Integração com backend
-- Interface funcional sem quebrar
+
+### Entregas obrigatórias:
+
+- [ ] Página Home completa (navbar, seções, footer)
+- [ ] Página de Diretores (cards, informações)
+- [ ] Página de Contato (formulário, validação)
+- [ ] Integração com backend funcionando
+- [ ] Mock data funcional (`/frontend/data/*.json`)
+- [ ] Interface responsiva ( 3 resoluções: mobile, tablet, desktop )
+- [ ] Navegação sem erros
+- [ ] Sem erros no console do navegador
+
+### Branches de trabalho (exemplos):
+
+```
+feature/frontend-home
+feature/frontend-navbar
+feature/frontend-filmes-section
+feature/frontend-lançamentos-carrossel
+feature/frontend-generos-section
+feature/frontend-classicos-section
+feature/frontend-diretores-page
+feature/frontend-diretores-cards
+feature/frontend-contato-page
+feature/frontend-contato-formulario
+feature/frontend-responsividade-mobile
+feature/frontend-responsividade-tablet
+feature/frontend-integracao-api
+feature/frontend-fallback-mock
+```
+
+### Apoio que pode fornecer:
+
+- Revisar PRs de outros membros
+- Testar integração frontend ↔ backend
+- Ajudar em correções críticas de outros
 
 ---
 
-# Backend
+## BACKEND
 
-## Responsabilidades: Henrique (IronVisuals) + apoio Lucas (lucasitdev)
+### Responsável principal: `Henrique (IronVisuals)`
+### Apoio: `Lucas (lucasitdev)`
 
-- Criar API REST
-- Implementar endpoints definidos
-- Integrar com banco de dados
+### Responsabilidades (Henrique):
+
+- Criar API REST completa
+- Implementar endpoints conforme escopo
+- Integrar com PostgreSQL/Supabase
 - Garantir estabilidade da aplicação
-- Implementar fallback (resiliência)
+- Implementar fallback (resiliência com mock)
+- Validar dados de entrada
+- Tratar erros apropriadamente
+- Configurar Docker e ambiente
 
-## Deve seguir:
+### Responsabilidades `(Lucas - Apoio)`:
 
-- ARQUITETURA.md
-- REQUISITOS.md
-- RESILIENCE.md
-- WORKFLOW.md
+- Testar endpoints durante desenvolvimento
+- Ajudar em correções críticas
+- Validar integração frontend ↔ backend
+- Revisar estrutura de respostas da API
 
-## Entregas obrigatórias:
+### Documentos que deve seguir (ordem):
 
-- Endpoint `/api/filmes`
-- Endpoint `/api/diretores`
-- Endpoint `/api/contato`
-- Integração com PostgreSQL/Supabase
-- API funcional e estável
+1. **01_ESCOPO_DO_PROJETO.md** → Escopo funcional
+2. **02_REQUISITOS.md** → Requisitos funcionais
+3. **03_ARQUITETURA.md** → Arquitetura do sistema
+4. **04_TECNOLOGIAS_DO_PROJETO.md** → Stack utilizada
+5. **17_RESILIENCE.md** → Implementar fallback
+6. **08_WORKFLOW.md** → Como trabalhar
+7. **10_BRANCHING.md** → Como criar branches
+8. **09_VERSIONAMENTO.md** → Padrões de commit
+
+### Entregas obrigatórias:
+
+- [ ] Endpoint `GET /api/filmes` (lista de filmes)
+- [ ] Endpoint `GET /api/filmes/:id` (detalhe filme)
+- [ ] Endpoint `GET /api/diretores` (lista diretores)
+- [ ] Endpoint `GET /api/diretores/:id` (detalhe diretor)
+- [ ] Endpoint `POST /api/contato` (enviar mensagem)
+- [ ] Integração com PostgreSQL/Supabase
+- [ ] Mock data para fallback (`/backend/mock/*.json`)
+- [ ] API funcional e estável
+- [ ] Respostas padronizadas (success + data/error)
+- [ ] Error handling completo
+- [ ] CORS configurado
+- [ ] Sem erros no console
+
+### Branch de trabalho (exemplos):
+
+```
+feature/backend-setup
+feature/backend-routes-setup
+feature/backend-controllers-setup
+feature/backend-services-setup
+feature/backend-api-filmes
+feature/backend-api-diretores
+feature/backend-api-contato
+feature/backend-postgres-integration
+feature/backend-supabase-integration
+feature/backend-fallback-mock
+feature/backend-validacao-dados
+feature/backend-error-handling
+feature/backend-cors-setup
+```
+
+### Apoio que pode fornecer:
+
+- Revisar PRs de outros membros
+- Ajudar em problemas críticos
+- Orientar sobre estrutura backend
 
 ---
 
-# Testes (QA)
+## TESTES (QA)
 
-## Responsabilidades: Matheus (Mbolsanello)
+### Responsável principal: **Matheus (Mbolsanello)**
+### Apoio: **Winley**
 
-- Criar testes automatizados E2E
-- Garantir que sistema funcione sem backend real (mock)
+### Responsabilidades (Matheus):
+
+- Criar testes automatizados E2E (Cypress)
+- Garantir funcionamento sem backend real
 - Validar fluxos principais do sistema
+- Testar responsividade em 3 resoluções
+- Testar navegação entre páginas
+- Testar formulários e validações
+- Manter testes 100% passando no CI
 
-## Deve seguir:
+### Responsabilidades (Winley - Apoio):
 
-- TEST_PLAN.md
-- CYPRESS_E2E.md
-- REQUISITOS.md
+- Validar testes no CI/CD
+- Ajudar em testes complexos
+- Testar integrações entre áreas
+- Ajudar em testes de regressão
 
-## Entregas obrigatórias:
+### Regras críticas:
 
-- Testes de carregamento
-- Testes de navegação
-- Testes de formulário
-- Uso obrigatório de `cy.intercept`
+- **NÃO** usar API real nos testes
+- **SEMPRE** usar `cy.intercept()` com fixtures
+- Testes devem rodar no CI (GitHub Actions)
+- **100%** dos testes passando sempre
+- Sem dependência de backend real
 
-## Regras:
+### Documentos que deve seguir (ordem):
 
-- NÃO usar API real
-- Testes devem rodar no CI
-- Testes devem passar sempre
+1. **15_TEST_PLAN.md** → Plano de testes
+2. **16_CYPRESS_E2E.md** → Detalhes Cypress
+3. **02_REQUISITOS.md** → O que testar
+4. **08_WORKFLOW.md** → Como trabalhar
+5. **10_BRANCHING.md** → Como criar branches
+6. **09_VERSIONAMENTO.md** → Padrões de commit
+
+### Entregas obrigatórias:
+
+- [ ] Setup Cypress com `cypress.config.js`
+- [ ] Fixtures de teste (`filmes.json`, `diretores.json`)
+- [ ] Testes de carregamento (home, diretores)
+- [ ] Testes de navegação (navbar, links)
+- [ ] Testes de formulário (validação, envio)
+- [ ] Testes de responsividade (mobile, tablet, desktop)
+- [ ] Testes usando `cy.intercept()` (SEM API real)
+- [ ] Testes passando localmente 100%
+- [ ] Testes passando no CI 100%
+
+### Branches de trabalho (exemplos):
+
+```
+feature/tests-cypress-setup
+feature/tests-cypress-fixtures
+feature/tests-cypress-home
+feature/tests-cypress-navegacao
+feature/tests-cypress-diretores
+feature/tests-cypress-formulario
+feature/tests-cypress-responsividade
+feature/tests-cypress-validacoes
+```
+
+### Apoio que pode fornecer:
+
+- Revisar PRs de outros membros
+- Ajudar com problemas de teste
+- Orientar sobre Cypress
 
 ---
 
-# DevOps
+## DEVOPS
 
-## Responsabilidades: Henrique (IronVisuals)
+### Responsável principal: **Henrique (IronVisuals)**
+### Apoio: **Winley**
 
-- Configurar CI/CD
+### Responsabilidades (Henrique):
+
+- Configurar CI/CD (GitHub Actions)
 - Garantir execução automática dos testes
 - Configurar deploy automático
+- Monitorar status dos builds
+- Resolver falhas de CI/CD
+- Configurar Docker e PostgreSQL
+- Integrar Vercel (frontend)
+- Integrar Render (backend)
+- Configurar variáveis de ambiente
 
-## Deve seguir:
+### Responsabilidades (Winley - Apoio):
 
-- CI_CD.md
-- DEPLOY\_(VERCEL_RENDER).md
+- Ajudar na configuração do Docker
+- Testar CI/CD em PRs
+- Validar deploys automáticos
+- Ajudar em troubleshooting
 
-## Entregas obrigatórias:
+### Documentos que deve seguir (ordem):
 
-- GitHub Actions funcionando
-- Cypress rodando no CI
-- Deploy automático ativo:
-  - Frontend (Vercel ou GitHub Pages)
-  - Backend (Render)
+1. **18_CI_CD.md** → Configuração CI/CD
+2. **19_DEPLOY_(VERCEL_RENDER).md** → Deploy
+3. **07_CONFIG_REPO_GITHUB.md** → Config repo
+4. **08_WORKFLOW.md** → Como trabalhar
+5. **10_BRANCHING.md** → Como criar branches
+
+### Entregas obrigatórias:
+
+- [ ] Docker Compose com PostgreSQL funcionando
+- [ ] GitHub Actions configurado (`ci.yml`) e (`cd.yml`)
+- [ ] CI rodando em PRs para `dev` e `main`
+- [ ] Cypress rodando no CI automaticamente
+- [ ] Testes bloqueando merge se falharem
+- [ ] Deploy automático em Vercel (frontend)
+- [ ] Deploy automático em Render (backend)
+- [ ] Health checks funcionando
+- [ ] Variáveis de ambiente configuradas
+
+### Branches de trabalho (exemplos):
+
+```
+feature/devops-docker-compose
+feature/devops-github-actions-ci
+feature/devops-github-actions-cd
+feature/devops-vercel-integration
+feature/devops-render-integration
+feature/devops-status-checks
+feature/devops-postgres-setup
+```
+
+### Apoio que pode fornecer:
+
+- Revisar PRs de outros membros
+- Ajudar em configuração de infraestrutura
+- Orientar sobre CI/CD
 
 ---
 
-# Gestão e Organização (TODOS)
+## DOCUMENTAÇÃO (OBRIGAÇÃO DE TODOS)
 
-- Seguir workflow do projeto
-- Criar branch corretamente
-- Fazer commits organizados
-- Criar Pull Requests
-- Revisar código dos colegas
+### Responsabilidades de todos:
 
-## Deve seguir:
+- Manter documentação **atualizada**
+- Documentar mudanças realizadas
+- Atualizar `CHANGELOG.md` em cada feature
+- Garantir clareza e objetividade
+- Manter consistência entre documentos
+- Revisar documentação dos colegas
 
-- WORKFLOW.md
-- BRANCHING.md
-- CONTRIBUTION.md
-- DEFINITION_OF_DONE.md
+### Documentos principais:
 
----
-
-## Regras (OBRIGATÓRIO)
-
-Todos os membros DEVEM:
-
-- Seguir os documentos oficiais
-- Não trabalhar direto na `main`
-- Criar branch para cada tarefa
-- Fazer Pull Request
-- Testar antes de subir código
-- Não quebrar o projeto
-
----
-
-## Comunicação
-
-- Informar bloqueios imediatamente
-- Alinhar mudanças com equipe
-- Não alterar arquitetura sem consenso
+- **README.md** → Overview do projeto
+- **01_ESCOPO_DO_PROJETO.md** → Escopo funcional (CENTRAL)
+- **21_CHANGELOG.md** → Histórico de mudanças
+- Todos em `/docs` → Referência completa
 
 ---
 
@@ -175,46 +324,86 @@ Todos os membros DEVEM:
 
 ### Frontend ↔ Backend
 
-- Frontend consome API
-- Backend garante retorno correto
+- **Frontend** consome API definida
+- **Backend** garante retorno correto
+- **Ambos** testam integração localmente
+- **Acordam** contrato de dados (estrutura JSON)
 
 ### Backend ↔ Testes
 
-- Testes NÃO dependem do backend real
+- **Testes** **NÃO** dependem do backend real
+- **Testes** usam `cy.intercept()` com fixtures
+- **Backend** valida se dados fazem sentido
+- **Ambos** garantem funcionalidades críticas
 
 ### DevOps ↔ Todos
 
-- Todos devem garantir que:
-  - código roda local
-  - testes passam
+- **Todos** garantem que:
+  - Código roda localmente sem erros
+  - Testes passam antes de push
+  - CI está verde antes de merge
+  - Deploy reflete no ambiente online
 
 ---
 
-## Critério de Responsabilidade
+## Comunicação
 
-Cada membro é responsável por:
+- **WhatsApp** → Comunicações rápidas, PRs, bloqueios
+- **GitHub Issues** → Rastreamento de tarefas
+- **Pull Requests** → Detalhamento técnico
+- **Reuniões** → Alinhamento semanal (necessário)
 
-- Sua área
-- Qualidade do que entrega
-- Impacto no projeto
-- Documentação
+### Regra Crítica:
+
+**Comunicar IMEDIATAMENTE se tiver bloqueios, dificuldades  ou dúvidas!**
 
 ---
 
-## Regra crítica
+## Regras (OBRIGATÓRIO PARA TODOS)
 
-Se algo quebrar:
+Todos os membros DEVEM:
 
-- Quem fez a alteração → corrige
+- Seguir os documentos oficiais (01 até 28)
+- Criar `feature/*` para cada tarefa
+- Fazer PR antes de qualquer merge
+- Testar código antes de subir
+- Não quebrar o projeto
+- Comunicar bloqueios imediatamente
+- Revisar código dos colegas
+- Manter documentação atualizada
+- Seguir padrões do projeto
+
+---
+
+## Em caso de problema
+
+1. **Comunicar no WhatsApp**
+   - Descrever o problema
+   - Mencionar o bloqueio
+
+2. **Pedir ajuda de colega**
+   - Mesmo se for de outra área
+   - Ninguém trabalha isolado
+
+3. **Resolver juntos**
+   - Compartilhar conhecimento
+   - Documentar solução
+
+4. **Levar para reunião**
+   - Se problema sistêmico
+   - Para alinhar equipe
 
 ---
 
 ## Resultado
 
-- Projeto organizado
-- Equipe alinhada
+Quando todos seguem suas responsabilidades:
+
+- Projeto organizado e claro
+- Equipe totalmente alinhada
 - Entregas completas
-- Sem retrabalho
-- Sem confusão de responsabilidades
+- Zero retrabalho
+- Zero confusão de responsabilidades
+- Entrega 100% garantida
 
 ---

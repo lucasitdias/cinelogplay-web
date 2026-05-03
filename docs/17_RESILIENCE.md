@@ -1,4 +1,4 @@
-# Resiliência do Sistema — CineLog
+# Resiliência do Sistema — CinelogPlay
 
 ## Porposta
 
@@ -24,7 +24,7 @@ Resiliência é a capacidade do sistema de:
 
 ## Estratégia do Projeto
 
-A resiliência do CineLog é baseada em dois pilares:
+A resiliência do CinelogPlay é baseada em dois pilares:
 
 ### 1. Frontend desacoplado (Mock)
 

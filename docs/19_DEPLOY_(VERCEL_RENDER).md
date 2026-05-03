@@ -66,7 +66,7 @@
 ## Pipeline de Testes
 
 ```yaml id="ci-pipeline"
-name: CI/CD - CineLog
+name: CI/CD - CinelogPlay
 
 on:
   push:
