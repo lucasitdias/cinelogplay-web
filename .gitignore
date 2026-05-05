@@ -1,28 +1,57 @@
+# ========================================
 # Dependências
+# ========================================
 node_modules/
-pnpm-lock.yaml (apenas em monorepo)
+pnpm-lock.yaml
+npm-debug.log*
+yarn-error.log*
 
-# Ambiente
+# ========================================
+# Ambiente (NUNCA versionar)
+# ========================================
 .env
 .env.local
 .env.*.local
+.env.development.local
+.env.test.local
+.env.production.local
 
-# Build
+# ========================================
+# Build Output (NÃO versionar)
+# ========================================
 dist/
 build/
-
-# Testes
 coverage/
+.nyc_output/
 
-# Editor
+# ========================================
+# Cypress (NÃO versionar outputs)
+# ========================================
+cypress/screenshots/
+cypress/videos/
+
+# ========================================
+# IDE (NÃO versionar configurações pessoais)
+# ========================================
 .vscode/
 .idea/
+*.swp
+*.swo
+*~
 
-# OS
+# ========================================
+# OS (NÃO versionar)
+# ========================================
 .DS_Store
 Thumbs.db
 
-# Logs
+# ========================================
+# Docker (NÃO versionar dados)
+# ========================================
+.docker/
+
+# ========================================
+# Logs (NÃO versionar)
+# ========================================
 *.log
-npm-debug.log*
-pnpm-debug.log*
+/tmp/

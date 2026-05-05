@@ -1,24 +1,30 @@
 {
-  "name": "cinelogplay-backend",
+  "name": "cinelogplay",
   "version": "1.0.0",
-  "description": "API backend para CinelogPlay",
-  "main": "server.js",
+  "description": "CinelogPlay - Catálogo Informativo de Produções Cinematográficas",
+  "private": true,
   "type": "module",
   "scripts": {
-    "dev": "node --watch server.js",
-    "start": "node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "pnpm -C frontend run dev",
+    "build": "pnpm -C frontend run build",
+    "preview": "pnpm -C frontend run preview",
+    "test:ci": "pnpm -C frontend run test:ci",
+    "cypress:open": "pnpm -C frontend run cypress:open",
+    "backend:dev": "pnpm -C backend run dev",
+    "backend:start": "pnpm -C backend run start",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f"
   },
-  "keywords": ["cinema", "api", "node"],
-  "author": "CinelogPlay",
-  "license": "MIT",
-  "dependencies": {
-    "express": "^4.19.x",
-    "cors": "^2.8.x",
-    "dotenv": "^16.x",
-    "pg": "^8.x"
-  },
-  "devDependencies": {
-    "nodemon": "^3.x"
-  }
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "keywords": [
+    "cinema",
+    "catalogo",
+    "filmes"
+  ],
+  "author": "CinelogPlay Team",
+  "license": "MIT"
 }
