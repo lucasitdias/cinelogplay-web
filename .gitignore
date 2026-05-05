@@ -2,7 +2,6 @@
 # Dependências
 # ========================================
 node_modules/
-pnpm-lock.yaml
 npm-debug.log*
 yarn-error.log*
 
@@ -33,7 +32,6 @@ cypress/videos/
 # ========================================
 # IDE (NÃO versionar configurações pessoais)
 # ========================================
-.vscode/
 .idea/
 *.swp
 *.swo
