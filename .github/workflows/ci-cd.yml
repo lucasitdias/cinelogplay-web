@@ -66,6 +66,11 @@ jobs:
           cat /tmp/vite.log
           exit 1
 
+      # Instalar Cypress binary
+      - name: Instalar Cypress binary
+        working-directory: ./frontend
+        run: pnpm exec cypress install
+
       # Rodar Cypress (testes E2E com fixtures, SEM API real)
       - name: Rodar Cypress (Testes E2E)
         working-directory: ./frontend
