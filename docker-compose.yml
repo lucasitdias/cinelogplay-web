@@ -3,33 +3,44 @@ services:
   # POSTGRESQL - BANCO DE DADOS
   # ========================================
   postgres:
+    # Imagem oficial do PostgreSQL versão 16 (leve, baseada em Alpine)
     image: postgres:16-alpine
+    # Nome do container
     container_name: cinelogplay-postgres
+    # Variáveis de ambiente para configuração do banco
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: senha_segura
       POSTGRES_DB: CinelogPlay
+    # Mapeamento de portas (host:container)
     ports:
       - "5432:5432"
+    # Volume para persistência dos dados
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    # Rede compartilhada entre os serviços
     networks:
       - cinelogplay-network
+    # Healthcheck para verificar se o banco está pronto
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 10s
       timeout: 5s
       retries: 5
+    # Reinicia automaticamente caso pare
     restart: unless-stopped
 
   # ========================================
   # BACKEND - API NODE.JS + EXPRESS
   # ========================================
   backend:
+    # Configuração de build (Dockerfile dentro da pasta backend)
     build:
       context: ./backend
       dockerfile: Dockerfile
+    # Nome do container
     container_name: cinelogplay-backend
+    # Variáveis de ambiente do backend
     environment:
       NODE_ENV: development
       PORT: 3001
@@ -39,45 +50,68 @@ services:
       DB_PASSWORD: senha_segura
       DB_NAME: CinelogPlay
       CORS_ORIGIN: "http://localhost:5173,http://localhost:3000"
+    # Mapeamento de portas
     ports:
       - "3001:3001"
+    # Dependência: só inicia após o Postgres estar saudável
     depends_on:
       postgres:
         condition: service_healthy
+    # Rede compartilhada
     networks:
       - cinelogplay-network
+    # Volumes para sincronizar código e evitar sobrescrever node_modules
     volumes:
       - ./backend:/app
       - /app/node_modules
+    # Comando padrão de inicialização
     command: pnpm run dev
+    # Reinicia automaticamente caso pare
     restart: unless-stopped
 
   # ========================================
   # FRONTEND - VITE
   # ========================================
   frontend:
+    # Configuração de build (Dockerfile dentro da pasta frontend)
     build:
       context: ./frontend
       dockerfile: Dockerfile
+    # Nome do container
     container_name: cinelogplay-frontend
+    # Variáveis de ambiente do frontend
     environment:
       VITE_API_URL: "http://localhost:3001"
+    # Mapeamento de portas
     ports:
       - "5173:5173"
+    # Dependência: só inicia após o backend
     depends_on:
       - backend
+    # Rede compartilhada
     networks:
       - cinelogplay-network
+    # Volumes para sincronizar código e evitar sobrescrever node_modules
     volumes:
       - ./frontend:/app
       - /app/node_modules
+    # Comando padrão de inicialização
     command: pnpm run dev -- --host
+    # Reinicia automaticamente caso pare
     restart: unless-stopped
 
+# ========================================
+# VOLUMES
+# ========================================
 volumes:
+  # Volume para persistência dos dados do PostgreSQL
   postgres_data:
     driver: local
 
+# ========================================
+# REDES
+# ========================================
 networks:
+  # Rede compartilhada entre os serviços
   cinelogplay-network:
     driver: bridge
