@@ -122,11 +122,11 @@ jobs:
 
       - name: CI passou! Preparando deploy
         run: |
-          echo " CI passou com sucesso!"
-          echo " Vercel e Render farão deploy automático"
-          echo " Frontend será deployado em: https://seu-frontend.vercel.app"
-          echo " Backend será deployado em: https://seu-backend.onrender.com"
+          echo "CI passou com sucesso!"
+          echo "Vercel e Render farão deploy automático"
           echo ""
-          echo "Status:"
-          echo "- Vercel: detectará push automático"
-          echo "- Render: detectará push automático"
+          echo "Frontend:"
+          echo "https://seu-frontend.vercel.app"
+          echo ""
+          echo "Backend:"
+          echo "https://seu-backend.onrender.com"
