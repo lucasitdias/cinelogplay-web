@@ -53,17 +53,23 @@ jobs:
         run: |
           nohup pnpm run dev > /tmp/vite.log 2>&1 &
           echo "Aguardando servidor iniciar..."
-          for i in {1..30}; do
-            if curl -f http://localhost:5173 > /dev/null 2>&1; then
+          for i in {1..60}; do
+            if curl -s http://localhost:5173 > /dev/null 2>&1; then
               echo "Servidor rodando em http://localhost:5173"
+              sleep 2
               exit 0
             fi
-            echo "Tentativa $i/30..."
-            sleep 2
+            echo "Tentativa $i/60..."
+            sleep 1
           done
           echo "Servidor não respondeu"
           cat /tmp/vite.log
           exit 1
+
+      # Instalar Cypress binary
+      - name: Instalar Cypress binary
+        working-directory: ./frontend
+        run: pnpm exec cypress install
 
       # Rodar Cypress (testes E2E com fixtures, SEM API real)
       - name: Rodar Cypress (Testes E2E)
@@ -116,11 +122,11 @@ jobs:
 
       - name: CI passou! Preparando deploy
         run: |
-          echo " CI passou com sucesso!"
-          echo " Vercel e Render farão deploy automático"
-          echo " Frontend será deployado em: https://seu-frontend.vercel.app"
-          echo " Backend será deployado em: https://seu-backend.onrender.com"
+          echo "CI passou com sucesso!"
+          echo "Vercel e Render farão deploy automático"
           echo ""
-          echo "Status:"
-          echo "- Vercel: detectará push automático"
-          echo "- Render: detectará push automático"
+          echo "Frontend:"
+          echo "https://seu-frontend.vercel.app"
+          echo ""
+          echo "Backend:"
+          echo "https://seu-backend.onrender.com"
