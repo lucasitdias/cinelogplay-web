@@ -4,6 +4,7 @@
   "description": "CinelogPlay - Catálogo Informativo de Produções Cinematográficas",
   "private": true,
   "type": "module",
+  "packageManager": "pnpm@9.15.9",
   "scripts": {
     "dev": "pnpm -C frontend run dev",
     "build": "pnpm -C frontend run build",
