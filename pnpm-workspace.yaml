@@ -1,3 +1,6 @@
+# Define os pacotes que fazem parte do workspace do pnpm
 packages:
-  - 'frontend'
-  - 'backend'
+  # Pasta do frontend
+  - "frontend"
+  # Pasta do backend
+  - "backend"
