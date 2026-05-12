@@ -1,7 +1,9 @@
 # Checklist — Testes + DevOps Apoio
 
 #### Responsável: Winley
+
 #### Apoio para: Matheus (Testes), Henrique (DevOps)
+
 #### Referência: `11_RESPONSABILIDADES.md` → Seções "TESTES (Apoio)" + "DEVOPS (Apoio)"
 
 ---
@@ -11,7 +13,7 @@
 - **Winley** → Apoio Testes + DevOps
 - **Matheus** → Responsável Testes
 - **Henrique** → Responsável DevOps
-  
+
 ---
 
 ## Objetivo
@@ -29,7 +31,7 @@ Definir **todas as tarefas de apoio em Testes e DevOps** que Winley deve realiza
 
 ### 1: Validar Setup Cypress
 
-- [ ] Verificar que `cypress.config.js` existe
+- [x] Verificar que `cypress.config.js` existe
 - [ ] Verificar que `cypress/e2e/` tem testes
 - [ ] Verificar que `cypress/fixtures/` tem dados
 - [ ] Rodar testes localmente:
@@ -37,6 +39,7 @@ Definir **todas as tarefas de apoio em Testes e DevOps** que Winley deve realiza
   ```bash
   pnpm run cypress:open
   ```
+
 - [ ] Verificar que não há erros de importação
 - [ ] Verificar que fixtures são carregadas corretamente
 
@@ -52,7 +55,7 @@ pnpm run test:ci
 ```
 
 - [ ] Todos os testes passam localmente
-- [ ] Não há skipped tests 
+- [ ] Não há skipped tests
 - [ ] Não há warnings desnecessários
 - [ ] Tempo de execução razoável (5 min)
 
@@ -154,23 +157,27 @@ describe("Responsividade", () => {
 Verificar que testes cobrem:
 
 #### Home
+
 - [ ] Página carrega
 - [ ] Cards aparecem
 - [ ] Mock data funciona
 - [ ] Sem erros
 
 #### Diretores
+
 - [ ] Página carrega
 - [ ] Cards com diretores aparecem
 - [ ] Dados corretos (nome, nacionalidade, obras)
 
 #### Contato
+
 - [ ] Formulário aparece
 - [ ] Validações funcionam (campos obrigatórios)
 - [ ] Envia sem erro
 - [ ] Fallback offline funciona
 
 #### Navegação
+
 - [ ] Home → Diretores
 - [ ] Diretores → Contato
 - [ ] Contato → Home
@@ -195,6 +202,7 @@ it("Deve testar [cenário]", () => {
 Se algum teste está falhando:
 
 **Passo 1:** Entender o erro
+
 ```bash
 # Ver logs detalhados
 pnpm run cypress:open
@@ -203,12 +211,14 @@ pnpm run cypress:open
 ```
 
 **Passo 2:** Identificar causa
+
 - Seletor CSS mudou?
 - Fixture data incorreta?
 - Timing issue (elemento não apareceu)?
 - Validação incorreta?
 
 **Passo 3:** Comunicar
+
 ```
 Teste falhando: [nome do teste]
 Erro: [copiar mensagem de erro]
@@ -409,20 +419,20 @@ Redeploy
 
 ```
 GitHub Actions → Verificar último workflow
-- Passou? 
+- Passou?
 - Falhou?  Comunicar
 ```
 
 ```
 Render Dashboard → seu-backend
-- Status: Live? 
-- Health: Green? 
+- Status: Live?
+- Health: Green?
 ```
 
 ```
 Vercel Dashboard → seu-frontend
-- Status: Ready? 
-- Build: Last deployment OK? 
+- Status: Ready?
+- Build: Last deployment OK?
 ```
 
 Se algo não está ok:
@@ -533,24 +543,25 @@ Deploy bloqueado: [motivo]
 
 ## Responsabilidades
 
-| Fase | Tarefa | Status |
-|------|--------|--------|
-| 1 | Setup Cypress | - |
-| 2 | Validar testes localmente | - |
-| 3 | Validar CI | - |
-| 4 | 3 resoluções | - |
-| 5 | Fixtures corretas | - |
-| 6 | Cenários cobertos | - |
-| 7 | Debug testes | - |
-| 8 | Docker funciona | - |
-| 9 | GitHub Actions OK | - |
-| 10 | Deploy Render OK | - |
-| 11 | Variáveis ambiente | - |
-| 12 | Teste de robustez | - |
-| 13 | Monitoramento | - |
-| 14 | Documentação | - |
+| Fase | Tarefa                    | Status |
+| ---- | ------------------------- | ------ |
+| 1    | Setup Cypress             | -      |
+| 2    | Validar testes localmente | -      |
+| 3    | Validar CI                | -      |
+| 4    | 3 resoluções              | -      |
+| 5    | Fixtures corretas         | -      |
+| 6    | Cenários cobertos         | -      |
+| 7    | Debug testes              | -      |
+| 8    | Docker funciona           | -      |
+| 9    | GitHub Actions OK         | -      |
+| 10   | Deploy Render OK          | -      |
+| 11   | Variáveis ambiente        | -      |
+| 12   | Teste de robustez         | -      |
+| 13   | Monitoramento             | -      |
+| 14   | Documentação              | -      |
 
 ---
+
 ---
 
 # `TAREFAS COMPARTILHADAS (TODOS) !!!`
@@ -558,17 +569,20 @@ Deploy bloqueado: [motivo]
 ### Versionamento e Workflow
 
 #### Branch Management
+
 - [ ] Criar feature branch: `git checkout -b feature/[area]`
 - [ ] Manter branch atualizada: `git pull origin main`
 - [ ] Commits descritivos: `feat:`, `fix:`, `docs:`, `test:`
 
 #### Pull Requests
+
 - [ ] Criar PR para main com descrição clara
 - [ ] Aguardar 1 aprovação mínima
 - [ ] Garantir CI verde antes de merge
 - [ ] Resolver comentários antes de merge
 
 #### Documentação
+
 - [ ] Atualizar docs se fazer mudanças na arquitetura
 - [ ] Documentar novos endpoints (se backend)
 - [ ] Documentar novos testes (se testes)
@@ -578,6 +592,7 @@ Deploy bloqueado: [motivo]
 # `Deploy e Apresentação`
 
 #### Antes da Apresentação
+
 - [ ] Frontend funciona sem backend
 - [ ] Backend funciona sem banco
 - [ ] Testes passam localmente
@@ -585,6 +600,7 @@ Deploy bloqueado: [motivo]
 - [ ] Deploy online funcionando
 
 #### Checklist de Apresentação
+
 - [ ] Repositório no GitHub acessível
 - [ ] README.md completo e atualizado
 - [ ] Projeto rodando localmente
@@ -600,15 +616,14 @@ Deploy bloqueado: [motivo]
 
 Este cronograma organiza a divisão de responsabilidades entre os membros do time, Lucas, Matheus e Henrique, garantindo fluxo contínuo de desenvolvimento, testes e DevOps.
 
-
 > ## Distribuição de Responsabilidades
 
-| Semana | `Lucas (Frontend)` | `Henrique (Backend+DevOps)` | `Matheus (Testes)` | `Winley (Apoio Testes + DevOps)` |
-|--------|--------------------|------------------------------|--------------------|----------------------------------|
-| **1** | Estrutura base (HTML, CSS, layout inicial, mock data) | Setup do backend (Express, rotas iniciais, estrutura API) | Setup do Cypress + fixtures iniciais | Validar setup do Cypress + estrutura inicial do projeto |
-| **2** | Páginas adicionais + integração com API | Services, regras de negócio + melhorias de arquitetura | Testes E2E (Home, navegação, formulários) | Validar testes localmente + apoio na criação de cenários E2E |
-| **3** | Integração completa + ajustes UI/UX | Docker + CI/CD (GitHub Actions + deploy pipeline) | Validação CI + automação Cypress no pipeline | Validar CI/CD + apoiar integração dos testes no pipeline |
-| **4** | Ajustes finais + refinamento visual | Ajustes finais + deploy backend | Testes finais + regressão completa | Monitoramento, validação de deploy e testes de robustez |
+| Semana | `Lucas (Frontend)`                                    | `Henrique (Backend+DevOps)`                               | `Matheus (Testes)`                           | `Winley (Apoio Testes + DevOps)`                             |
+| ------ | ----------------------------------------------------- | --------------------------------------------------------- | -------------------------------------------- | ------------------------------------------------------------ |
+| **1**  | Estrutura base (HTML, CSS, layout inicial, mock data) | Setup do backend (Express, rotas iniciais, estrutura API) | Setup do Cypress + fixtures iniciais         | Validar setup do Cypress + estrutura inicial do projeto      |
+| **2**  | Páginas adicionais + integração com API               | Services, regras de negócio + melhorias de arquitetura    | Testes E2E (Home, navegação, formulários)    | Validar testes localmente + apoio na criação de cenários E2E |
+| **3**  | Integração completa + ajustes UI/UX                   | Docker + CI/CD (GitHub Actions + deploy pipeline)         | Validação CI + automação Cypress no pipeline | Validar CI/CD + apoiar integração dos testes no pipeline     |
+| **4**  | Ajustes finais + refinamento visual                   | Ajustes finais + deploy backend                           | Testes finais + regressão completa           | Monitoramento, validação de deploy e testes de robustez      |
 
 ---
 
@@ -616,14 +631,14 @@ Este cronograma organiza a divisão de responsabilidades entre os membros do tim
 
 Uma tarefa está pronta quando:
 
--  Código funcional
--  Segue padrão do projeto
--  Sem erros no console
--  Funciona com mock/fallback
--  Testes passam localmente
--  Commit realizado corretamente
--  PR criado e aprovado
--  CI verde
--  Deploy refletido online
+- Código funcional
+- Segue padrão do projeto
+- Sem erros no console
+- Funciona com mock/fallback
+- Testes passam localmente
+- Commit realizado corretamente
+- PR criado e aprovado
+- CI verde
+- Deploy refletido online
 
 ---
