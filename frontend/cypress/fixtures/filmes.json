@@ -1,8 +1,26 @@
-[
-  {
-    "id": 1,
-    "titulo": "Filme Teste",
-    "ano": 2024,
-    "genero": "Ação"
-  }
-]
+{
+  "success": true,
+  "data": [
+    {
+      "id": 1,
+      "titulo": "O Poderoso Chefão",
+      "ano": 1972,
+      "genero": "Crime",
+      "tipo": "Clássico"
+    },
+    {
+      "id": 2,
+      "titulo": "Interestelar",
+      "ano": 2014,
+      "genero": "Ficção Científica",
+      "tipo": "Moderno"
+    },
+    {
+      "id": 3,
+      "titulo": "Pulp Fiction",
+      "ano": 1994,
+      "genero": "Crime",
+      "tipo": "Clássico"
+    }
+  ]
+}
