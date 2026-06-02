@@ -1,10 +1,13 @@
 # Checklist - TESTES (QA)
 
 #### Responsável: Matheus (Mbolsanello)
+
 #### Apoio: Winley
+
 #### Referência: `11_RESPONSABILIDADES.md` → Seção "TESTES (QA)"
 
 ---
+
 ## Objetivo
 
 Definir **todas as tarefas de testes (QA)** que Matheus e Winley deverão realizar, garantindo:
@@ -20,12 +23,14 @@ Definir **todas as tarefas de testes (QA)** que Matheus e Winley deverão realiz
 
 ### 1: Setup Cypress
 
-- [ ] Instalar Cypress v13.x
+- [x] Instalar Cypress v13.x
+
   ```bash
   pnpm add -D cypress@13
   ```
 
-- [ ] Criar `cypress.config.js` na raiz:
+- [x] Criar `cypress.config.js` na raiz:
+
   ```js
   module.exports = {
     e2e: {
@@ -38,7 +43,8 @@ Definir **todas as tarefas de testes (QA)** que Matheus e Winley deverão realiz
   };
   ```
 
-- [ ] Adicionar script em `package.json`:
+- [x] Adicionar script em `package.json`:
+
   ```json
   {
     "scripts": {
@@ -48,7 +54,7 @@ Definir **todas as tarefas de testes (QA)** que Matheus e Winley deverão realiz
   }
   ```
 
-- [ ] Criar estrutura de pastas:
+- [x] Criar estrutura de pastas:
   ```
   cypress/
   ├── e2e/
@@ -107,10 +113,7 @@ Definir **todas as tarefas de testes (QA)** que Matheus e Winley deverão realiz
       "id": 1,
       "nome": "Francis Ford Coppola",
       "nacionalidade": "EUA",
-      "principais_obras": [
-        "O Poderoso Chefão",
-        "Apocalypse Now"
-      ]
+      "principais_obras": ["O Poderoso Chefão", "Apocalypse Now"]
     },
     {
       "id": 2,
@@ -354,7 +357,10 @@ describe("Responsividade", () => {
     });
 
     it("Deve exibir 2 colunas de cards", () => {
-      cy.get(".row").first().find(".col-md-6, .col-lg-4").should("have.length.greaterThan", 1);
+      cy.get(".row")
+        .first()
+        .find(".col-md-6, .col-lg-4")
+        .should("have.length.greaterThan", 1);
     });
 
     it("Deve funcionar navegação", () => {
@@ -369,7 +375,10 @@ describe("Responsividade", () => {
     });
 
     it("Deve exibir 3-4 colunas de cards", () => {
-      cy.get(".row").first().find(".col-lg-4, .col-lg-3").should("have.length.greaterThan", 2);
+      cy.get(".row")
+        .first()
+        .find(".col-lg-4, .col-lg-3")
+        .should("have.length.greaterThan", 2);
     });
 
     it("Navbar deve estar expandido", () => {
@@ -472,17 +481,20 @@ Bloqueio: [o que está impedindo]
 ### Versionamento e Workflow
 
 #### Branch Management
+
 - [ ] Criar feature branch: `git checkout -b feature/[area]`
 - [ ] Manter branch atualizada: `git pull origin main`
 - [ ] Commits descritivos: `feat:`, `fix:`, `docs:`, `test:`
 
 #### Pull Requests
+
 - [ ] Criar PR para main com descrição clara
 - [ ] Aguardar 1 aprovação mínima
 - [ ] Garantir CI verde antes de merge
 - [ ] Resolver comentários antes de merge
 
 #### Documentação
+
 - [ ] Atualizar docs se fazer mudanças na arquitetura
 - [ ] Documentar novos endpoints (se backend)
 - [ ] Documentar novos testes (se testes)
@@ -492,6 +504,7 @@ Bloqueio: [o que está impedindo]
 # `Deploy e Apresentação`
 
 #### Antes da Apresentação
+
 - [ ] Frontend funciona sem backend
 - [ ] Backend funciona sem banco
 - [ ] Testes passam localmente
@@ -499,6 +512,7 @@ Bloqueio: [o que está impedindo]
 - [ ] Deploy online funcionando
 
 #### Checklist de Apresentação
+
 - [ ] Repositório no GitHub acessível
 - [ ] README.md completo e atualizado
 - [ ] Projeto rodando localmente
@@ -514,15 +528,14 @@ Bloqueio: [o que está impedindo]
 
 Este cronograma organiza a divisão de responsabilidades entre os membros do time, Lucas, Matheus e Henrique, garantindo fluxo contínuo de desenvolvimento, testes e DevOps.
 
-
 > ## Distribuição de Responsabilidades
 
-| Semana | `Lucas (Frontend)` | `Henrique (Backend+DevOps)` | `Matheus (Testes)` | `Winley (Apoio Testes + DevOps)` |
-|--------|--------------------|------------------------------|--------------------|----------------------------------|
-| **1** | Estrutura base (HTML, CSS, layout inicial, mock data) | Setup do backend (Express, rotas iniciais, estrutura API) | Setup do Cypress + fixtures iniciais | Validar setup do Cypress + estrutura inicial do projeto |
-| **2** | Páginas adicionais + integração com API | Services, regras de negócio + melhorias de arquitetura | Testes E2E (Home, navegação, formulários) | Validar testes localmente + apoio na criação de cenários E2E |
-| **3** | Integração completa + ajustes UI/UX | Docker + CI/CD (GitHub Actions + deploy pipeline) | Validação CI + automação Cypress no pipeline | Validar CI/CD + apoiar integração dos testes no pipeline |
-| **4** | Ajustes finais + refinamento visual | Ajustes finais + deploy backend | Testes finais + regressão completa | Monitoramento, validação de deploy e testes de robustez |
+| Semana | `Lucas (Frontend)`                                    | `Henrique (Backend+DevOps)`                               | `Matheus (Testes)`                           | `Winley (Apoio Testes + DevOps)`                             |
+| ------ | ----------------------------------------------------- | --------------------------------------------------------- | -------------------------------------------- | ------------------------------------------------------------ |
+| **1**  | Estrutura base (HTML, CSS, layout inicial, mock data) | Setup do backend (Express, rotas iniciais, estrutura API) | Setup do Cypress + fixtures iniciais         | Validar setup do Cypress + estrutura inicial do projeto      |
+| **2**  | Páginas adicionais + integração com API               | Services, regras de negócio + melhorias de arquitetura    | Testes E2E (Home, navegação, formulários)    | Validar testes localmente + apoio na criação de cenários E2E |
+| **3**  | Integração completa + ajustes UI/UX                   | Docker + CI/CD (GitHub Actions + deploy pipeline)         | Validação CI + automação Cypress no pipeline | Validar CI/CD + apoiar integração dos testes no pipeline     |
+| **4**  | Ajustes finais + refinamento visual                   | Ajustes finais + deploy backend                           | Testes finais + regressão completa           | Monitoramento, validação de deploy e testes de robustez      |
 
 ---
 
@@ -530,14 +543,14 @@ Este cronograma organiza a divisão de responsabilidades entre os membros do tim
 
 Uma tarefa está pronta quando:
 
--  Código funcional
--  Segue padrão do projeto
--  Sem erros no console
--  Funciona com mock/fallback
--  Testes passam localmente
--  Commit realizado corretamente
--  PR criado e aprovado
--  CI verde
--  Deploy refletido online
+- Código funcional
+- Segue padrão do projeto
+- Sem erros no console
+- Funciona com mock/fallback
+- Testes passam localmente
+- Commit realizado corretamente
+- PR criado e aprovado
+- CI verde
+- Deploy refletido online
 
 ---
