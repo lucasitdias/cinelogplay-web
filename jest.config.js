@@ -1,23 +1,11 @@
-// Exporta configuração do Jest
 export default {
-<<<<<<< HEAD
-  // Define o ambiente de teste como Node.js v24.16.0
-=======
-  // Define o ambiente de teste como Node.js
->>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
   testEnvironment: "node",
-
-  // Exibe informações detalhadas durante a execução dos testes
   verbose: true,
-
-  // Define quais arquivos devem ser incluídos na coleta de cobertura
   collectCoverageFrom: [
-    "backend/*/.js", // Arquivos JS dentro da pasta backend
-    "frontend/*/.js", // Arquivos JS dentro da pasta frontend
-    "!/node_modules/", // Ignora dependências
-    "!/dist/", // Ignora arquivos gerados na build
+    "backend/**/*.js",
+    "frontend/**/*.js",
+    "!**/node_modules/**",
+    "!**/dist/**",
   ],
-
-  // Diretório onde será gerado o relatório de cobertura
   coverageDirectory: "coverage",
 };

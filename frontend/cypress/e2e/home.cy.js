@@ -1,10 +1,9 @@
-<<<<<<< HEAD
 const MOCK_FILMES = [
   {
     id: 1,
     titulo: "Inception",
     ano: 2010,
-    genero: "Ficção Científica",
+    genero: "FicÃ§Ã£o CientÃ­fica",
     imagem: "",
     media_avaliacao: "4.5",
     total_avaliacoes: 10,
@@ -20,7 +19,7 @@ const MOCK_FILMES = [
   },
 ];
 const MOCK_DIRETORES = [
-  { id: 1, nome: "Christopher Nolan", nacionalidade: "Britânico", foto: "" },
+  { id: 1, nome: "Christopher Nolan", nacionalidade: "BritÃ¢nico", foto: "" },
 ];
 
 describe("Home Page", () => {
@@ -37,54 +36,31 @@ describe("Home Page", () => {
     cy.visit("/");
   });
 
-  it("deve carregar a página home", () => {
+  it("deve carregar a pÃ¡gina home", () => {
     cy.contains("O melhor do cinema").should("exist");
   });
 
-  it("deve exibir o título principal", () => {
+  it("deve exibir o tÃ­tulo principal", () => {
     cy.get("h1").should("exist");
   });
 
-  it("deve exibir link para catálogo de filmes", () => {
-    cy.contains("Ver Catálogo").should("exist");
+  it("deve exibir link para catÃ¡logo de filmes", () => {
+    cy.contains("Ver CatÃ¡logo").should("exist");
   });
 
-  it("deve exibir link para criar conta quando não autenticado", () => {
+  it("deve exibir link para criar conta quando nÃ£o autenticado", () => {
     cy.contains("Criar conta").should("exist");
   });
 
-  it("deve navegar para /filmes ao clicar em Ver Catálogo", () => {
-    cy.contains("Ver Catálogo").click();
+  it("deve navegar para /filmes ao clicar em Ver CatÃ¡logo", () => {
+    cy.contains("Ver CatÃ¡logo").click();
     cy.url().should("include", "/filmes");
   });
 
-  it("deve realizar busca pelo formulário do hero", () => {
+  it("deve realizar busca pelo formulÃ¡rio do hero", () => {
     cy.get("input[placeholder*='Buscar']").first().type("Inception");
     cy.get("button[type='submit']").first().click();
     cy.url().should("include", "/busca");
     cy.url().should("include", "Inception");
   });
 });
-=======
-// descreve o conjunto de testes da página Home
-describe("Home", () => {
-
-  // define um caso de teste específico
-  it("deve carregar filmes", () => {
-
-    // intercepta a requisição GET para /api/filmes e retorna um fixture mockado
-    cy.intercept("GET", "/api/filmes", {
-      fixture: "filmes.json",
-    }).as("getFilmes");
-
-    // acessa a página inicial da aplicação
-    cy.visit("/");
-
-    // aguarda a conclusão da requisição interceptada
-    cy.wait("@getFilmes");
-
-    // verifica se o texto "Filme Teste" está visível na tela
-    cy.contains("Filme Teste").should("be.visible");
-  });
-});
->>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8

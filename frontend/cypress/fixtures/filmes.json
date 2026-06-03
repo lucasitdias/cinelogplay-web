@@ -3,28 +3,23 @@
   "data": [
     {
       "id": 1,
-      "titulo": "O Poderoso Chefão",
+      "titulo": "O Poderoso ChefÃ£o",
       "ano": 1972,
       "genero": "Crime",
-<<<<<<< HEAD
       "classificacao": "14",
       "imagem": "/filmes/o-poderoso-chefao.png",
-      "descricao_curta": "A história de um crime corporativo",
-      "sinopse": "A história da família Corleone e seu império do crime.",
+      "descricao_curta": "A histÃ³ria de um crime corporativo",
+      "sinopse": "A histÃ³ria da famÃ­lia Corleone e seu impÃ©rio do crime.",
       "tipo": "classico"
-=======
-      "tipo": "Clássico"
->>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
     },
     {
       "id": 2,
       "titulo": "Interestelar",
       "ano": 2014,
-      "genero": "Ficção Científica",
-<<<<<<< HEAD
+      "genero": "FicÃ§Ã£o CientÃ­fica",
       "classificacao": "10",
       "imagem": "/filmes/interstellar.png",
-      "descricao_curta": "Um grupo de exploradores viaja pelo espaço",
+      "descricao_curta": "Um grupo de exploradores viaja pelo espaÃ§o",
       "sinopse": "Astronautas viajam por um buraco de minhoca.",
       "tipo": "moderno"
     },
@@ -36,18 +31,8 @@
       "classificacao": "16",
       "imagem": "/filmes/parasita.jpg",
       "descricao_curta": "Thriller social que conquistou o mundo",
-      "sinopse": "Uma família pobre se infiltra na vida de uma família rica.",
+      "sinopse": "Uma famÃ­lia pobre se infiltra na vida de uma famÃ­lia rica.",
       "tipo": "premiado"
-=======
-      "tipo": "Moderno"
-    },
-    {
-      "id": 3,
-      "titulo": "Pulp Fiction",
-      "ano": 1994,
-      "genero": "Crime",
-      "tipo": "Clássico"
->>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
     }
   ]
 }

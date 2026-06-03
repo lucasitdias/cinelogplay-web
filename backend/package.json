@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "API backend CinelogPlay",
   "type": "module",
-<<<<<<< HEAD
   "main": "src/server.js",
   "scripts": {
     "dev": "node --watch src/server.js",
@@ -26,20 +25,6 @@
   },
   "devDependencies": {
     "@jest/globals": "^30.4.1",
-=======
-  "main": "server.js",
-  "scripts": {
-    "dev": "node --watch server.js",
-    "start": "node server.js"
-  },
-  "dependencies": {
-    "express": "^4.19.2",
-    "cors": "^2.8.5",
-    "dotenv": "^16.4.5",
-    "pg": "^8.11.5"
-  },
-  "devDependencies": {
->>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
     "nodemon": "^3.0.0"
   }
 }
