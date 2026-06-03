@@ -20,7 +20,9 @@ describe("Página de Login", () => {
 
   it("deve exibir erro ao enviar campos vazios", () => {
     cy.contains("button", "Entrar").click();
-    cy.contains("Preencha email e senha").should("exist");
+    cy.get("input[type='email']").then(($input) => {
+      expect($input[0].checkValidity()).to.equal(false);
+    });
   });
 
   it("deve exibir erro com credenciais inválidas", () => {

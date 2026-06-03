@@ -9,34 +9,38 @@ describe("Responsividade", () => {
     });
   });
 
-  it("deve carregar a home em mobile (375x667)", () => {
+  it("carrega a home em mobile (375x667)", () => {
     cy.viewport(375, 667);
     cy.visit("/");
-    cy.get("nav").should("be.visible");
+    cy.get("header").should("be.visible");
+    cy.get(".header-hamburger").should("be.visible");
+    cy.get(".header-nav-desktop").should("not.be.visible");
   });
 
-  it("deve carregar a home em tablet (768x1024)", () => {
+  it("carrega a home em tablet (768x1024)", () => {
     cy.viewport(768, 1024);
     cy.visit("/");
-    cy.get("nav").should("be.visible");
+    cy.get("header").should("be.visible");
+    cy.get(".header-hamburger").should("be.visible");
+    cy.get(".header-nav-desktop").should("not.be.visible");
   });
 
-  it("deve carregar a home em desktop (1920x1080)", () => {
+  it("carrega a home em desktop (1920x1080)", () => {
     cy.viewport(1920, 1080);
     cy.visit("/");
-    cy.get("nav").should("be.visible");
+    cy.get(".header-nav-desktop").should("be.visible");
   });
 
-  it("deve exibir o conteúdo principal em mobile", () => {
+  it("exibe o conteudo principal em mobile", () => {
     cy.viewport(375, 667);
     cy.visit("/");
     cy.get("h1").should("be.visible");
   });
 
-  it("deve navegar para /filmes em mobile", () => {
+  it("navega para /filmes em mobile", () => {
     cy.viewport(375, 667);
     cy.visit("/");
-    cy.contains("Ver Catálogo").click();
+    cy.get("a[href='/filmes']").first().click();
     cy.url().should("include", "/filmes");
   });
 });

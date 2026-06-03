@@ -3,7 +3,7 @@ const MOCK_FILMES = [
     id: 1,
     titulo: "Inception",
     ano: 2010,
-    genero: "FicÃ§Ã£o CientÃ­fica",
+    genero: "Ficcao Cientifica",
     imagem: "",
     media_avaliacao: "4.5",
     total_avaliacoes: 10,
@@ -18,8 +18,9 @@ const MOCK_FILMES = [
     total_avaliacoes: 20,
   },
 ];
+
 const MOCK_DIRETORES = [
-  { id: 1, nome: "Christopher Nolan", nacionalidade: "BritÃ¢nico", foto: "" },
+  { id: 1, nome: "Christopher Nolan", nacionalidade: "Britanico", foto: "" },
 ];
 
 describe("Home Page", () => {
@@ -36,28 +37,28 @@ describe("Home Page", () => {
     cy.visit("/");
   });
 
-  it("deve carregar a pÃ¡gina home", () => {
-    cy.contains("O melhor do cinema").should("exist");
+  it("carrega a pagina home", () => {
+    cy.contains(/O melhor do cinema/i).should("be.visible");
   });
 
-  it("deve exibir o tÃ­tulo principal", () => {
-    cy.get("h1").should("exist");
+  it("exibe o titulo principal", () => {
+    cy.get("h1").should("be.visible");
   });
 
-  it("deve exibir link para catÃ¡logo de filmes", () => {
-    cy.contains("Ver CatÃ¡logo").should("exist");
+  it("exibe link para catalogo de filmes", () => {
+    cy.get("a[href='/filmes']").should("be.visible");
   });
 
-  it("deve exibir link para criar conta quando nÃ£o autenticado", () => {
-    cy.contains("Criar conta").should("exist");
+  it("exibe link para criar conta quando nao autenticado", () => {
+    cy.get("a[href='/cadastro']").contains(/Criar conta/i).should("be.visible");
   });
 
-  it("deve navegar para /filmes ao clicar em Ver CatÃ¡logo", () => {
-    cy.contains("Ver CatÃ¡logo").click();
+  it("navega para /filmes ao clicar no link do catalogo", () => {
+    cy.get("a[href='/filmes']").first().click();
     cy.url().should("include", "/filmes");
   });
 
-  it("deve realizar busca pelo formulÃ¡rio do hero", () => {
+  it("realiza busca pelo formulario do hero", () => {
     cy.get("input[placeholder*='Buscar']").first().type("Inception");
     cy.get("button[type='submit']").first().click();
     cy.url().should("include", "/busca");
