@@ -8,10 +8,13 @@
   - [Visão Geral da Arquitetura](#visão-geral-da-arquitetura)
   - [Modelo Arquitetural](#modelo-arquitetural)
   - [Estrutura do Projeto](#estrutura-do-projeto)
+<<<<<<< HEAD
     - [Estrutura de Testes](#estrutura-de-testes)
     - [Arquivos obrigatórios de gerenciamento](#arquivos-obrigatórios-de-gerenciamento)
     - [Objetivo](#objetivo)
     - [Modelo de Repositório](#modelo-de-repositório)
+=======
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
   - [Camadas do Sistema](#camadas-do-sistema)
     - [Frontend](#frontend)
       - [Tecnologias:](#tecnologias)
@@ -84,6 +87,7 @@ Banco de Dados (PostgreSQL)
 ## Estrutura do Projeto
 
 ```
+<<<<<<< HEAD
 CINELOGPLAY-WEB/
 │
 ├── frontend/
@@ -200,6 +204,34 @@ Benefícios:
 - compartilhamento de configurações
 - integração simplificada com CI/CD
 - gerenciamento consistente de versões
+=======
+CinelogPlay/
+│
+├── frontend/
+│   ├── index.html
+│   ├── pages/
+│   ├── css/
+│   ├── js/
+│   ├── data/ (mock)
+│   └── .env
+│
+├── backend/
+│   ├── server.js
+│   ├── routes/
+│   ├── controllers/
+│   ├── services/
+│   ├── config/
+│   └── mock/
+│
+├── cypress/
+│
+├── docs/
+│
+└── .github/workflows/
+```
+
+O uso de `.env` no frontend é destinado à configuração de URLs da API e variáveis de ambiente em contexto de deploy.
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 
 ---
 
@@ -231,12 +263,20 @@ Responsável por:
 - API REST
 - Integração com banco
 - Fallback (modo offline)
+<<<<<<< HEAD
 - Autenticação e autorização (JWT)
 
 #### Tecnologias:
 
 - Node.js v24.16.0
 - Express v4.22.2
+=======
+
+#### Tecnologias:
+
+- Node.js
+- Express
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 
 ---
 
@@ -251,6 +291,10 @@ Responsável por:
 
 - PostgreSQL
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ## Fluxo de Comunicação
 
 ### Fluxo padrão:
@@ -259,13 +303,20 @@ Responsável por:
 2. Frontend chama API:
 
 ```js
+<<<<<<< HEAD
 fetch(`${config.apiUrl}/api/filmes`)
   .then((res) => res.json())
   .then((json) => json.data);
+=======
+fetch("/api/filmes")
+  .then(res => res.json())
+  .then(json => json.data);
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ```
 
 ```js
 // fallback automático (modo offline)
+<<<<<<< HEAD
 import filmes from "../data/filmes.json";
 
 function getFilmes() {
@@ -280,6 +331,11 @@ import diretores from "../data/diretores.json";
 function getDiretores() {
   return diretores.data;
 }
+=======
+fetch("/frontend/data/filmes.json")
+  .then(res => res.json())
+  .then(json => json.data);
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ```
 
 3. Backend processa
@@ -295,6 +351,7 @@ function getDiretores() {
 Se API falhar:
 
 ```js
+<<<<<<< HEAD
 // fallback automático (modo offline)
 import filmes from "../data/filmes.json";
 
@@ -310,6 +367,11 @@ import diretores from "../data/diretores.json";
 function getDiretores() {
   return diretores.data;
 }
+=======
+fetch("/frontend/data/filmes.json")
+  .then(res => res.json())
+  .then(json => json.data);
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ```
 
 ---
@@ -321,7 +383,11 @@ Se banco falhar:
 ```js
 return res.json({
   success: true,
+<<<<<<< HEAD
   data: mockFilmes,
+=======
+  data: mockFilmes
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 });
 ```
 
@@ -371,6 +437,7 @@ return res.json({
 
 - GET /api/filmes
 - GET /api/filmes/:id
+<<<<<<< HEAD
 
 - GET /api/diretores
 - GET /api/diretores/:id
@@ -382,6 +449,12 @@ return res.json({
 - Rotas de avaliações
 - Rotas de favoritos
 
+=======
+- GET /api/diretores
+- GET /api/diretores/:id
+- POST /api/contato
+
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ---
 
 ## Organização do Código
@@ -389,6 +462,7 @@ return res.json({
 ### Backend
 
 ```
+<<<<<<< HEAD
 /backend
 └── src
     ├── auth/
@@ -404,10 +478,19 @@ return res.json({
     ├── tests/
     ├── utils/
     └── server.js
+=======
+backend/
+├── routes/
+├── controllers/
+├── services/
+├── config/
+├── mock/
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ```
 
 #### Responsabilidades:
 
+<<<<<<< HEAD
 - auth → autenticação e autorização (JWT)
 - config → configuração da aplicação e conexão com banco
 - controllers → recebimento e tratamento das requisições
@@ -420,6 +503,13 @@ return res.json({
 - tests → testes automatizados
 - utils → funções utilitárias compartilhadas
 - server.js → inicialização da aplicação backend
+=======
+- routes → define endpoints
+- controllers → recebe requisição
+- services → lógica de negócio
+- config → configuração e conexão com banco
+- mock → fallback
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 
 ---
 
@@ -428,6 +518,7 @@ return res.json({
 ```
 frontend/
 ├── pages/
+<<<<<<< HEAD
 ├── src/
 │   ├── js/
 │   ├── css/
@@ -435,6 +526,11 @@ frontend/
 │   │   ├── filmes.json
 │   │   └── diretores.json
 │   └── img/
+=======
+├── js/
+├── css/
+├── data/
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ```
 
 #### Responsabilidades:
@@ -456,7 +552,11 @@ frontend/
 
 - Todas as respostas da API devem obrigatoriamente seguir o padrão:
 
+<<<<<<< HEAD
   Sucesso:
+=======
+    Sucesso:
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 
 ```
 {
@@ -470,7 +570,10 @@ Erro:
   "error": "mensagem descritiva"
 }
 ```
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ---
 
 ## Fluxo de desenvolvimento
@@ -494,6 +597,7 @@ Erro:
 - Falha na pipeline bloqueia o merge
 - Deploy ocorre automaticamente após validação
 
+<<<<<<< HEAD
 Fluxo da pipeline:
 
 ```
@@ -510,6 +614,8 @@ Merge
 Deploy
 ```
 
+=======
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ---
 
 ## Boas práticas

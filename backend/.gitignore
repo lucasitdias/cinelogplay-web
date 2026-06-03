@@ -2,7 +2,10 @@
 # Dependências
 # ========================================
 node_modules/
+<<<<<<< HEAD
 .pnpm-store/
+=======
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 npm-debug.log*
 yarn-error.log*
 
@@ -54,6 +57,7 @@ Thumbs.db
 # ========================================
 *.log
 /tmp/
+<<<<<<< HEAD
 
 # ========================================
 # PNPM
@@ -69,3 +73,5 @@ Thumbs.db
 # Docker volumes locais
 # ========================================
 postgres_data/
+=======
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8

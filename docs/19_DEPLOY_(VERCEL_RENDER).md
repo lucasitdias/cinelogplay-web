@@ -8,6 +8,10 @@
   - [Pré-requisitos](#pré-requisitos)
   - [GitHub Actions (CI)](#github-actions-ci)
     - [Arquivo obrigatório:](#arquivo-obrigatório)
+<<<<<<< HEAD
+=======
+  - [Pipeline de Testes](#pipeline-de-testes)
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
   - [Frontend — Vercel](#frontend--vercel)
     - [Passo a passo](#passo-a-passo)
     - [Configuração](#configuração)
@@ -24,8 +28,12 @@
   - [Integração Frontend ↔ Backend](#integração-frontend--backend)
     - [CRÍTICO](#crítico)
   - [Ordem correta de deploy](#ordem-correta-de-deploy)
+<<<<<<< HEAD
     - [Passo a passo obrigatório (primeira configuração)](#passo-a-passo-obrigatório-primeira-configuração)
       - [Observação](#observação)
+=======
+    - [Passo a passo obrigatório:](#passo-a-passo-obrigatório)
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
   - [Validação do Deploy](#validação-do-deploy)
     - [Testar:](#testar)
     - [Teste de robustez](#teste-de-robustez)
@@ -63,6 +71,39 @@
 
 ---
 
+<<<<<<< HEAD
+=======
+## Pipeline de Testes
+
+```yaml id="ci-pipeline"
+name: CI/CD - CinelogPlay
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - run: corepack enable
+      - run: pnpm install
+
+      - run: pnpm run test:ci
+```
+
+---
+
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ## Frontend — Vercel
 
 ### Passo a passo
@@ -119,7 +160,11 @@ pnpm install
 #### Start:
 
 ```bash id="start-backend"
+<<<<<<< HEAD
 node backend/src/server.js
+=======
+node server.js
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ```
 
 ---
@@ -127,7 +172,11 @@ node backend/src/server.js
 ### Porta dinâmica (OBRIGATÓRIO)
 
 ```js id="port-backend"
+<<<<<<< HEAD
 const PORT = process.env.PORT || 3001;
+=======
+const PORT = process.env.PORT || 3000;
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 app.listen(PORT);
 ```
 
@@ -163,20 +212,33 @@ VITE_API_URL=https://seu-backend.onrender.com
 
 ## Ordem correta de deploy
 
+<<<<<<< HEAD
 ### Passo a passo obrigatório (primeira configuração)
+=======
+### Passo a passo obrigatório:
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 
 1. Subir backend no Render
 2. Testar endpoint:
 
+<<<<<<< HEAD
 https://seu-backend.onrender.com/api/filmes
+=======
+```
+https://seu-backend.onrender.com/api/filmes
+```
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 
 3. Configurar `.env` no frontend
 4. Subir frontend no Vercel
 
+<<<<<<< HEAD
 #### Observação
 
 Após a configuração inicial e a integração das plataformas com o GitHub, os deploys passam a ocorrer automaticamente a cada push ou merge nas branches configuradas (`dev` e `main`), não sendo necessário realizar novos deploys manuais.
 
+=======
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ---
 
 ## Validação do Deploy

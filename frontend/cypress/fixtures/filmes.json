@@ -6,17 +6,22 @@
       "titulo": "O Poderoso Chefão",
       "ano": 1972,
       "genero": "Crime",
+<<<<<<< HEAD
       "classificacao": "14",
       "imagem": "/filmes/o-poderoso-chefao.png",
       "descricao_curta": "A história de um crime corporativo",
       "sinopse": "A história da família Corleone e seu império do crime.",
       "tipo": "classico"
+=======
+      "tipo": "Clássico"
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
     },
     {
       "id": 2,
       "titulo": "Interestelar",
       "ano": 2014,
       "genero": "Ficção Científica",
+<<<<<<< HEAD
       "classificacao": "10",
       "imagem": "/filmes/interstellar.png",
       "descricao_curta": "Um grupo de exploradores viaja pelo espaço",
@@ -33,6 +38,16 @@
       "descricao_curta": "Thriller social que conquistou o mundo",
       "sinopse": "Uma família pobre se infiltra na vida de uma família rica.",
       "tipo": "premiado"
+=======
+      "tipo": "Moderno"
+    },
+    {
+      "id": 3,
+      "titulo": "Pulp Fiction",
+      "ano": 1994,
+      "genero": "Crime",
+      "tipo": "Clássico"
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
     }
   ]
 }

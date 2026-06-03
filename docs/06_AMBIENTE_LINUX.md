@@ -5,12 +5,21 @@ Ambiente Linux — Instalação e Configuração
 
 Este passo a passo detalha o processo completo para configurar o ambiente de desenvolvimento no Linux, garantindo que todos os integrantes utilizem a mesma base para desenvolvimento do projeto CinelogPlay.
 
+<<<<<<< HEAD
 - Git v2.54 (recomendado)
 - fnm
 - Node.js v24.16.0
 - pnpm v10.12.4 (via corepack)
 - Docker Engine 29.5.2
 - PostgreSQL v16-alpine (via Docker)
+=======
+- Git v2.53 (recomendado)
+- fnm
+- Node.js v20.20.2
+- pnpm (via corepack)
+- Docker Engine 29.4.0
+- PostgreSQL (via Docker)
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ```
 
 ---
@@ -26,7 +35,11 @@ Este passo a passo detalha o processo completo para configurar o ambiente de des
     - [Instalar fnm via script oficial](#instalar-fnm-via-script-oficial)
     - [Ativar fnm no shell](#ativar-fnm-no-shell)
     - [Persistir configuração](#persistir-configuração)
+<<<<<<< HEAD
     - [Instalar Node.js v24.16.0](#instalar-nodejs-v24160)
+=======
+    - [Instalar Node.js v20.20.2 LTS](#instalar-nodejs-v20202-lts)
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
     - [Verificação](#verificação)
   - [Instalação do pnpm](#instalação-do-pnpm)
     - [Documentação](#documentação)
@@ -54,8 +67,14 @@ Este passo a passo detalha o processo completo para configurar o ambiente de des
     - [Documentação](#documentação-1)
     - [Instalação do Cypress](#instalação-do-cypress-1)
     - [Verificação](#verificação-3)
+<<<<<<< HEAD
   - [Instalação do Jest](#instalação-do-jest)
     - [Jest](#jest)
+=======
+  - [Instalação do Jest + Supertest](#instalação-do-jest--supertest)
+    - [Jest](#jest)
+    - [Supertest](#supertest)
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
     - [Instalar](#instalar)
     - [Verificação](#verificação-4)
   - [Instalação do VS Code + Extensões](#instalação-do-vs-code--extensões)
@@ -107,7 +126,11 @@ git --version
 sudo apt install git -y
 ```
 
+<<<<<<< HEAD
 Caso a versão não seja a v2.54, recomenda-se instalar via repositório oficial ou compilar.
+=======
+Caso a versão não seja a v2.53, recomenda-se instalar via repositório oficial ou compilar.
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 
 ---
 
@@ -142,12 +165,21 @@ source ~/.bashrc
 
 ---
 
+<<<<<<< HEAD
 ### Instalar Node.js v24.16.0
 
 ```bash
 fnm install 24.16.0
 fnm use 24.16.0
 fnm default 24.16.0
+=======
+### Instalar Node.js v20.20.2 LTS
+
+```bash
+fnm install 20.20.2
+fnm use 20.20.2
+fnm default 20.20.2
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ```
 
 ---
@@ -155,7 +187,11 @@ fnm default 24.16.0
 ### Verificação
 
 ```bash
+<<<<<<< HEAD
 node -v   # Deve mostrar v24.16.0
+=======
+node -v   # Deve mostrar v20.20.2
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ```
 
 ---
@@ -170,7 +206,11 @@ node -v   # Deve mostrar v24.16.0
 
 ```bash
 corepack enable
+<<<<<<< HEAD
 corepack prepare pnpm@10.12.4 --activate
+=======
+corepack prepare pnpm@latest --activate
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ```
 
 ---
@@ -178,7 +218,11 @@ corepack prepare pnpm@10.12.4 --activate
 ### Verificação
 
 ```bash
+<<<<<<< HEAD
 pnpm -v   # Deve mostrar versão 10.12.4.x
+=======
+pnpm -v   # Deve mostrar versão 9.x
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ```
 
 ---
@@ -237,7 +281,11 @@ echo \
 
 ```bash
 sudo apt update
+<<<<<<< HEAD
 sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
+=======
+sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin -y
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ```
 
 ---
@@ -254,7 +302,11 @@ newgrp docker
 ### Verificação
 
 ```bash
+<<<<<<< HEAD
 docker --version   # Deve mostrar versão 29.5.2
+=======
+docker --version   # Deve mostrar versão 29.4.0
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ```
 
 ---
@@ -264,6 +316,7 @@ docker --version   # Deve mostrar versão 29.5.2
 #### Criar arquivo `docker-compose.yml`
 
 ```yaml
+<<<<<<< HEAD
 services:
   frontend:
     build:
@@ -319,6 +372,19 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: cinelogplay
 
+=======
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: postgres-CinelogPlay
+    environment:
+      POSTGRES_PASSWORD: senha_segura
+      POSTGRES_DB: CinelogPlay
+    ports:
+      - "5432:5432"
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
@@ -353,7 +419,11 @@ docker compose down
 #### Baixar imagem
 
 ```bash
+<<<<<<< HEAD
 docker pull postgres:16-alpine
+=======
+docker pull postgres:16
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ```
 
 ---
@@ -362,12 +432,21 @@ docker pull postgres:16-alpine
 
 ```bash
 docker run -d \
+<<<<<<< HEAD
   --name postgres-cinelogplay \
   -e POSTGRES_PASSWORD=postgres \
   -e POSTGRES_DB=cinelogplay \
   -p 5432:5432 \
   -v postgres_data:/var/lib/postgresql/data \
   postgres:16-alpine
+=======
+  --name postgres-CinelogPlay \
+  -e POSTGRES_PASSWORD=senha_segura \
+  -e POSTGRES_DB=CinelogPlay \
+  -p 5432:5432 \
+  -v postgres_data:/var/lib/postgresql/data \
+  postgres:16
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ```
 
 ---
@@ -403,21 +482,40 @@ pnpm add cypress --save-dev
 ### Verificação
 
 ```bash
+<<<<<<< HEAD
 pnpm exec cypress -v   # Deve mostrar versão 14.x
+=======
+pnpm exec cypress -v   # Deve mostrar versão 13.x
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ```
 
 ---
 
+<<<<<<< HEAD
 ## Instalação do Jest
+=======
+## Instalação do Jest + Supertest
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 
 ### Jest
 
 [https://jestjs.io/docs/getting-started](https://jestjs.io/docs/getting-started)
 
+<<<<<<< HEAD
 ### Instalar
 
 ```bash
 pnpm add jest  --save-dev
+=======
+### Supertest
+
+[https://github.com/ladjs/supertest](https://github.com/ladjs/supertest)
+
+### Instalar
+
+```bash
+pnpm add jest supertest --save-dev
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ```
 
 ---
@@ -425,7 +523,11 @@ pnpm add jest  --save-dev
 ### Verificação
 
 ```bash
+<<<<<<< HEAD
 pnpm exec jest --version   # Deve mostrar versão 30.x
+=======
+pnpm exec jest --version   # Deve mostrar versão 29.x
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ```
 
 ---
@@ -477,8 +579,13 @@ cd CinelogPlay
 ### Atualizar base
 
 ```bash
+<<<<<<< HEAD
 git checkout dev
 git pull origin dev
+=======
+git checkout main
+git pull origin main
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ```
 
 ---
@@ -517,8 +624,13 @@ cp .env.example .env
 DB_HOST=postgres
 DB_PORT=5432
 DB_USER=postgres
+<<<<<<< HEAD
 DB_PASSWORD=postgres
 DB_NAME=cinelogplay
+=======
+DB_PASSWORD=senha_segura
+DB_NAME=CinelogPlay
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 
 # Supabase (produção)
 SUPABASE_URL=
@@ -539,10 +651,17 @@ pnpm install
 pnpm run dev
 ```
 
+<<<<<<< HEAD
 - `pnpm install`
   Instala todas as dependências do projeto listadas no `package.json`.
 
 - `pnpm run dev`
+=======
+- `pnpm install`  
+  Instala todas as dependências do projeto listadas no `package.json`.
+
+- `pnpm run dev`  
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
   Inicia o servidor de desenvolvimento para rodar a aplicação localmente.
 
 ---
@@ -605,7 +724,11 @@ pnpm exec cypress -v
 
 ## Observações
 
+<<<<<<< HEAD
 - Sempre usar **Node.js v24.16.0**
+=======
+- Sempre usar **Node.js v20.20.2 LTS**
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 - Utilizar **pnpm** para gerenciamento de dependências
 - Configurar variáveis sensíveis em `.env`
 - Usar senha forte no PostgreSQL (`POSTGRES_PASSWORD`)

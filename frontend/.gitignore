@@ -2,7 +2,10 @@
 # Dependências
 # ========================================
 node_modules/
+<<<<<<< HEAD
 .pnpm-store/
+=======
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 npm-debug.log*
 yarn-error.log*
 
@@ -34,7 +37,10 @@ cypress/videos/
 # IDE (NÃO versionar configurações pessoais)
 # ========================================
 .idea/
+<<<<<<< HEAD
 .vscode/
+=======
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 *.swp
 *.swo
 *~
@@ -55,6 +61,7 @@ Thumbs.db
 # ========================================
 *.log
 /tmp/
+<<<<<<< HEAD
 
 # ========================================
 # PNPM
@@ -70,3 +77,5 @@ Thumbs.db
 # Docker volumes locais
 # ========================================
 postgres_data/
+=======
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8

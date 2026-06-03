@@ -1,6 +1,10 @@
 // Exporta configuração do Jest
 export default {
+<<<<<<< HEAD
   // Define o ambiente de teste como Node.js v24.16.0
+=======
+  // Define o ambiente de teste como Node.js
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
   testEnvironment: "node",
 
   // Exibe informações detalhadas durante a execução dos testes

@@ -10,10 +10,20 @@
     - [CD (Continuous Deployment)](#cd-continuous-deployment)
   - [Estrutura Obrigatória](#estrutura-obrigatória)
   - [Pipeline CI e CD (GitHub Actions)](#pipeline-ci-e-cd-github-actions)
+<<<<<<< HEAD
   - [Scripts Necessários no `frontend/package.json`](#scripts-necessários-no-frontendpackagejson)
   - [Fluxo da feature](#fluxo-da-feature)
   - [CI](#ci)
     - [Resultado](#resultado)
+=======
+    - [Arquivo: `.github/workflows/ci.yml`](#arquivo-githubworkflowsciyml)
+    - [Arquivo: `.github/workflows/ci.yml`](#arquivo-githubworkflowsciyml-1)
+  - [Scripts Necessários no `package.json`](#scripts-necessários-no-packagejson)
+    - [Adicionar em `package.json` (raiz):](#adicionar-em-packagejson-raiz)
+  - [Fluxo da feature](#fluxo-da-feature)
+  - [CI](#ci)
+    - [Resultado:](#resultado)
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
   - [CD — Deploy](#cd--deploy)
     - [Frontend (Vercel)](#frontend-vercel)
     - [Build:](#build)
@@ -62,7 +72,11 @@ Toda vez que faz push em `dev` ou `main`:
 ```
 1. GitHub Actions é acionado automaticamente
 2. Clona repositório
+<<<<<<< HEAD
 3. Instala dependências (pnpm v10.12.4)
+=======
+3. Instala dependências (pnpm v9.x)
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 4. Roda Cypress com mock (testes E2E com fixtures)
 5. Passou → PR pode ser mergeado
 6. Falhou → PR é bloqueado (obrigatório corrigir)
@@ -82,11 +96,19 @@ Após merge em `dev` ou `main`:
 1. Vercel (frontend) detecta mudança
    → Rebuilda automaticamente
    → Deploy em preview (dev) ou produção (main)
+<<<<<<< HEAD
 
 2. Render (backend) detecta mudança
    → Rebuilda automaticamente
    → Deploy em staging (dev) ou produção (main)
 
+=======
+   
+2. Render (backend) detecta mudança
+   → Rebuilda automaticamente
+   → Deploy em staging (dev) ou produção (main)
+   
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 Resultado: Alterações online em ~5 minutos
 ```
 
@@ -102,13 +124,20 @@ Criar dentro do projeto:
 Sua-Pasta-Raiz/
 └── .github/
     └── workflows/
+<<<<<<< HEAD
         └── ci-cd.yml
 ```
 
+=======
+        ├── ci.yml
+        └── cd.yml
+```
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ---
 
 ## Pipeline CI e CD (GitHub Actions)
 
+<<<<<<< HEAD
 O workflow completo encontra-se em:
 
 `.github/workflows/ci-cd.yml`
@@ -125,6 +154,93 @@ Principais etapas:
 ---
 
 ## Scripts Necessários no `frontend/package.json`
+=======
+### Arquivo: `.github/workflows/ci.yml`
+
+```yaml
+name: CI Pipeline - CinelogPlay
+
+on:
+  push:
+    branches: 
+      - dev
+      - main
+  pull_request:
+    branches: 
+      - dev
+      - main
+
+env:
+  NODE_VERSION: '20'
+
+jobs:
+  ci:
+    name: Testes (CI)
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Clonar repositório
+        uses: actions/checkout@v4
+      
+      - name: Configurar Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      
+      - name: Ativar pnpm via Corepack
+        run: corepack enable
+      
+      - name: Instalar dependências
+        run: pnpm install --frozen-lockfile
+      
+      - name: Rodar Cypress (Testes E2E)
+        run: pnpm run test:ci
+      
+      - name: Upload artifacts (screenshots/videos)
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-artifacts-${{ github.run_number }}
+          path: |
+            cypress/screenshots/
+            cypress/videos/
+          retention-days: 7
+```
+
+
+### Arquivo: `.github/workflows/ci.yml`
+
+```yaml
+name: CD Pipeline - CineLog
+
+on:
+  push:
+    branches:
+      - dev
+      - main
+  
+
+jobs:
+  cd:
+    name: Deploy Notification (CD)
+    runs-on: ubuntu-latest
+    
+    
+    steps:
+      - name: Status do Deploy
+        run: |
+          echo " Validações concluídas com sucesso!"
+          echo " O deploy automático foi disparado para as plataformas:"
+          echo " Frontend (Vercel): https://seu-dominio.vercel.app"
+          echo " Backend (Render): https://seu-backend.onrender.com"
+```
+
+---
+
+## Scripts Necessários no `package.json`
+
+### Adicionar em `package.json` (raiz):
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 
 ```json
 {
@@ -137,7 +253,10 @@ Principais etapas:
   }
 }
 ```
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ---
 
 ## Fluxo da feature
@@ -182,6 +301,7 @@ Principais etapas:
 
 ## CI
 
+<<<<<<< HEAD
 Quando ocorre um push ou Pull Request para `dev` ou `main`, o GitHub Actions:
 
 1. Clona o repositório
@@ -198,6 +318,27 @@ Quando ocorre um push ou Pull Request para `dev` ou `main`, o GitHub Actions:
 
 - Falhou → pipeline interrompida
 - Passou → etapa de CD é liberada
+=======
+Quando fizermos:
+
+```bash
+git push origin main
+```
+
+O GitHub vai:
+
+1. Clonar o projeto
+2. Configurar Node.js
+3. Ativar Corepack
+4. Instalar dependências com pnpm
+5. Subir servidor (via test:ci)
+6. Rodar Cypress automaticamente
+
+### Resultado:
+
+- Falhou → pipeline quebra
+- Passou → segue para CD
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 
 ---
 
@@ -258,7 +399,10 @@ PORT=10000
 7. **Create Web Service** → Deploy automático ativado
 
 **Resultado:**
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 - Cada push em `dev` → deploy em staging
 - Cada push em `main` → deploy em produção
 - URL: `https://seu-backend.onrender.com`
@@ -295,7 +439,10 @@ VITE_API_URL=https://seu-backend.onrender.com
 6. **Deploy** → Ativar auto-deploy
 
 **Resultado:**
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 - Cada push em `dev` → deploy automático em preview
 - Cada push em `main` → deploy automático em produção
 - URL: `https://seu-projeto.vercel.app`
@@ -316,13 +463,19 @@ VITE_API_URL=https://seu-backend.onrender.com
 ### Verificar Deploy:
 
 **Frontend (Vercel):**
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ```
 https://seu-projeto.vercel.app
 ```
 
 **Backend (Render):**
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ```
 https://seu-backend.onrender.com/api/filmes
 ```
@@ -336,9 +489,15 @@ Deve retornar JSON com dados ou erro, mas não timeout
 Garantir estrutura:
 
 ```
+<<<<<<< HEAD
 frontend/cypress/e2e/
 frontend/cypress/fixtures/
 frontend/cypress.config.js
+=======
+/cypress/e2e/
+/cypress/fixtures/
+cypress.config.js
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ```
 
 Rodar com:
@@ -390,6 +549,7 @@ Verificar:
 
 ## Requisitos de Implementação
 
+<<<<<<< HEAD
 - Arquivo `ci-cd.yml` existe em `.github/workflows/`
 - GitHub Actions executando em cada PR
 - Cypress rodando com fixtures (SEM API real)
@@ -399,6 +559,17 @@ Verificar:
 - Variáveis de ambiente configuradas
 - Status checks bloqueando merge se CI falhar
 - Deploy automático funcionando em `dev` e `main`
+=======
+-  Arquivo `ci.yml` e `cd.yml` existe em `.github/workflows/`
+-  GitHub Actions executando em cada PR
+-  Cypress rodando com fixtures (SEM API real)
+-  Testes 100% passando no CI
+-  Vercel conectado e deployando
+-  Render conectado e deployando
+-  Variáveis de ambiente configuradas
+-  Status checks bloqueando merge se CI falhar
+-  Deploy automático funcionando em `dev` e `main`
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 
 ---
 

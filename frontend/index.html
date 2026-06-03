@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!doctype html>
 <html lang="pt-BR">
   <head>
@@ -11,5 +12,139 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+=======
+<!-- Declaração do tipo de documento -->
+<!doctype html>
+<!-- Define o idioma da página -->
+<html lang="pt-BR">
+  <head>
+    <!-- Define a codificação de caracteres -->
+    <meta charset="UTF-8" />
+    <!-- Configura a viewport para responsividade -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Título da página -->
+    <title>CinelogPlay — Catálogo de Filmes</title>
+
+    <!-- Bootstrap CSS (framework de estilos) -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap Icons (biblioteca de ícones) -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
+    />
+
+    <!-- Estilos customizados da aplicação -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <!-- NAVBAR/HEADER -->
+    <nav class="navbar-custom">
+      <!-- Botão do menu hambúrguer -->
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+        <i class="bi bi-list"></i>
+      </button>
+
+      <!-- Logo centralizada -->
+      <a class="navbar-brand" href="/">
+        <img src="/cinelogplay.png" alt="CinelogPlay" title="CinelogPlay" />
+      </a>
+
+      <!-- Perfil do usuário com dropdown -->
+      <div class="user-profile-wrapper">
+        <button class="user-profile" id="userProfileBtn">
+          <div class="user-avatar" id="userAvatar">L</div>
+          <div class="user-info">
+            <span class="user-name" id="userName">Lucas</span>
+            <span class="user-email" id="userEmail">lucas@email.com</span>
+          </div>
+        </button>
+
+        <!-- Dropdown do perfil -->
+        <div class="user-dropdown" id="userDropdown">
+          <a href="#" id="profileLink"> <i class="bi bi-person"></i> Perfil </a>
+          <a href="#" id="logoutLink" class="logout">
+            <i class="bi bi-box-arrow-right"></i> Sair
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- SIDEBAR/MENU LATERAL -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <aside class="sidebar" id="sidebar">
+      <nav>
+        <ul class="sidebar-nav">
+          <li>
+            <a href="/" class="nav-link active" data-page="home">
+              <i class="bi bi-house-door"></i> Home
+            </a>
+          </li>
+          <li>
+            <a href="#filmes" class="nav-link" data-page="filmes">
+              <i class="bi bi-film"></i> Filmes
+            </a>
+          </li>
+          <li>
+            <a href="#diretores" class="nav-link" data-page="diretores">
+              <i class="bi bi-person-circle"></i> Diretores
+            </a>
+          </li>
+          <li>
+            <a href="#contato" class="nav-link" data-page="contato">
+              <i class="bi bi-envelope"></i> Contato
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- APP PRINCIPAL -->
+    <div id="app">
+      <div
+        class="container-fluid d-flex align-items-center justify-content-center"
+        style="min-height: calc(100vh - 80px)"
+      >
+        <div class="text-center">
+          <!-- Título principal -->
+          <h1
+            style="
+              font-size: 2.5rem;
+              color: #333;
+              font-weight: 300;
+              letter-spacing: 1px;
+              margin-bottom: 1.5rem;
+            "
+          >
+            🎬 CinelogPlay
+          </h1>
+          <!-- Subtítulo -->
+          <p style="font-size: 1.1rem; color: #999; margin-bottom: 0.5rem">
+            Catálogo Informativo de Produções Cinematográficas
+          </p>
+          <!-- Texto complementar -->
+          <p style="font-size: 1rem; color: #aaa">
+            Bem-vindo ao seu diário de bordo do cinema!
+          </p>
+        </div>
+      </div>
+
+      <!-- Container para filmes (necessário para o teste Cypress) -->
+      <div id="filmes-container"></div>
+    </div>
+
+    <!-- Bootstrap JS (scripts do framework) -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Script principal da aplicação -->
+    <script src="js/main.js"></script>
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
   </body>
 </html>

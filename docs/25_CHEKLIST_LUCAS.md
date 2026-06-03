@@ -1,7 +1,10 @@
 # Checklist — Frontend
 
 #### Responsável: Lucas (lucasitdev)
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 #### Referência: `11_RESPONSABILIDADES.md` → Seção "FRONTEND"
 
 ---
@@ -22,18 +25,25 @@ Definir **todas as tarefas de frontend** que Lucas deve realizar, garantindo:
 ### 1: Setup Frontend
 
 - [ ] Criar pasta `/frontend`
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
   ```bash
   mkdir frontend
   cd frontend
   ```
 
 - [ ] Inicializar Vite com HTML/CSS/JS
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
   ```bash
   pnpm create vite@latest . --template vanilla
   ```
 
+<<<<<<< HEAD
 - [ ] Instalar Bootstrap 5.3.8
 
   ```bash
@@ -62,6 +72,34 @@ Definir **todas as tarefas de frontend** que Lucas deve realizar, garantindo:
 
 - [ ] Configurar `.env` para frontend:
 
+=======
+- [ ] Instalar Bootstrap 5.3.x
+  ```bash
+  pnpm add bootstrap@5.3.x
+  ```
+
+- [ ] Criar estrutura de pastas:
+  ```
+  frontend/
+  ├── index.html
+  ├── css/
+  │   └── style.css
+  ├── js/
+  │   ├── main.js
+  │   └── api.js
+  ├── pages/
+  │   ├── diretores.html
+  │   └── contato.html
+  ├── data/
+  │   ├── filmes.json
+  │   ├── diretores.json
+  │   └── mensagens.json (para fallback localStorage)
+  └── img/
+      └── cinelogplay.png
+  ```
+
+- [ ] Configurar `.env` para frontend:
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
   ```
   VITE_API_URL=https://seu-backend.onrender.com
   ```
@@ -75,6 +113,7 @@ Definir **todas as tarefas de frontend** que Lucas deve realizar, garantindo:
 
 ### 2: Criar Mock Data
 
+<<<<<<< HEAD
 **Arquivo: `frontend/src/data/filmes.json`**
 
 **Arquivo: `frontend/src/data/diretores.json`**
@@ -83,6 +122,16 @@ Definir **todas as tarefas de frontend** que Lucas deve realizar, garantindo:
   - [ ] Mínimo 5 filmes com id, titulo, ano, genero, diretor_id, tipo, imagem
   - [ ] Seguir estrutura do banco
 - [ ] Criar `frontend/src/data/diretores.json`:
+=======
+**Arquivo: `frontend/data/filmes.json`**
+
+**Arquivo: `frontend/data/diretores.json`**
+
+- [ ] Criar `frontend/data/filmes.json`:
+  - [ ] Mínimo 5 filmes com id, titulo, ano, genero, diretor_id, tipo, imagem
+  - [ ] Seguir estrutura do banco
+- [ ] Criar `frontend/data/diretores.json`:
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
   - [ ] Mínimo 5 diretores com id, nome, nacionalidade, principais_obras
 
 ---
@@ -91,14 +140,22 @@ Definir **todas as tarefas de frontend** que Lucas deve realizar, garantindo:
 
 - [ ] HTML home criado
 - [ ] Navbar com links (Home, Diretores, Contato)
+<<<<<<< HEAD
 - [ ] Seções: Filmes variados, Destaque, Lançamentos, Gêneros, Por ano de lançamento, Clássicos
+=======
+- [ ] Seções: Destaque, Lançamentos, Gêneros, Clássicos
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 - [ ] Footer com redes sociais
 
 ---
 
 ### 4: Criar API Service
 
+<<<<<<< HEAD
 **Arquivo: `frontend/src/js/api.js`**
+=======
+**Arquivo: `frontend/js/api.js`**
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 
 - [ ] Arquivo api.js criado
 - [ ] Função getFilmes() implementada
@@ -110,7 +167,11 @@ Definir **todas as tarefas de frontend** que Lucas deve realizar, garantindo:
 
 ### 5: Criar Main.js
 
+<<<<<<< HEAD
 **Arquivo: `frontend/src/js/main.js`**
+=======
+**Arquivo: `frontend/js/main.js`**
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 
 - [ ] main.js criado
 - [ ] Função renderFilmes() implementada
@@ -145,9 +206,15 @@ Definir **todas as tarefas de frontend** que Lucas deve realizar, garantindo:
 
 ### 8: Criar CSS
 
+<<<<<<< HEAD
 **Arquivo: `/frontend/src/css/style.css`**
 
 - [ ] CSS criado em `/frontend/src/css/style.css`
+=======
+**Arquivo: `/frontend/css/style.css`**
+
+- [ ] CSS criado em `/frontend/css/style.css`
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 - [ ] Cores seguem paleta (escuro, vermelho, azul)
 - [ ] Hover effects em cards e botões
 - [ ] Responsivo mobile/tablet/desktop
@@ -299,6 +366,7 @@ Definir **todas as tarefas de frontend** que Lucas deve realizar, garantindo:
 ### Versionamento e Workflow
 
 #### Branch Management
+<<<<<<< HEAD
 
 - [ ] Criar feature branch: `git checkout -b feature/[area]`
 - [ ] Manter branch atualizada: `git pull origin dev`
@@ -308,12 +376,23 @@ Definir **todas as tarefas de frontend** que Lucas deve realizar, garantindo:
 #### Pull Requests
 
 - [ ] Criar PR para dev com descrição clara
+=======
+- [ ] Criar feature branch: `git checkout -b feature/[area]`
+- [ ] Manter branch atualizada: `git pull origin main`
+- [ ] Commits descritivos: `feat:`, `fix:`, `docs:`, `test:`
+
+#### Pull Requests
+- [ ] Criar PR para main com descrição clara
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 - [ ] Aguardar 1 aprovação mínima
 - [ ] Garantir CI verde antes de merge
 - [ ] Resolver comentários antes de merge
 
 #### Documentação
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 - [ ] Atualizar docs se fazer mudanças na arquitetura
 - [ ] Documentar novos endpoints (se backend)
 - [ ] Documentar novos testes (se testes)
@@ -323,7 +402,10 @@ Definir **todas as tarefas de frontend** que Lucas deve realizar, garantindo:
 # `Deploy e Apresentação`
 
 #### Antes da Apresentação
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 - [ ] Frontend funciona sem backend
 - [ ] Backend funciona sem banco
 - [ ] Testes passam localmente
@@ -331,7 +413,10 @@ Definir **todas as tarefas de frontend** que Lucas deve realizar, garantindo:
 - [ ] Deploy online funcionando
 
 #### Checklist de Apresentação
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 - [ ] Repositório no GitHub acessível
 - [ ] README.md completo e atualizado
 - [ ] Projeto rodando localmente
@@ -347,6 +432,7 @@ Definir **todas as tarefas de frontend** que Lucas deve realizar, garantindo:
 
 Este cronograma organiza a divisão de responsabilidades entre os membros do time, Lucas, Matheus e Henrique, garantindo fluxo contínuo de desenvolvimento, testes e DevOps.
 
+<<<<<<< HEAD
 > ## Distribuição de Responsabilidades
 
 | Semana | `Lucas (Frontend)`                                    | `Henrique (Backend+DevOps)`                               | `Matheus (Testes)`                           | `Winley (Apoio Testes + DevOps)`                             |
@@ -355,6 +441,18 @@ Este cronograma organiza a divisão de responsabilidades entre os membros do tim
 | **2**  | Páginas adicionais + integração com API               | Services, regras de negócio + melhorias de arquitetura    | Testes E2E (Home, navegação, formulários)    | Validar testes localmente + apoio na criação de cenários E2E |
 | **3**  | Integração completa + ajustes UI/UX                   | Docker + CI/CD (GitHub Actions + deploy pipeline)         | Validação CI + automação Cypress no pipeline | Validar CI/CD + apoiar integração dos testes no pipeline     |
 | **4**  | Ajustes finais + refinamento visual                   | Ajustes finais + deploy backend                           | Testes finais + regressão completa           | Monitoramento, validação de deploy e testes de robustez      |
+=======
+
+> ## Distribuição de Responsabilidades
+
+| Semana | `Lucas (Frontend)` | `Henrique (Backend+DevOps)` | `Matheus (Testes)` | `Winley (Apoio Testes + DevOps)` |
+|--------|--------------------|------------------------------|--------------------|----------------------------------|
+| **1** | Estrutura base (HTML, CSS, layout inicial, mock data) | Setup do backend (Express, rotas iniciais, estrutura API) | Setup do Cypress + fixtures iniciais | Validar setup do Cypress + estrutura inicial do projeto |
+| **2** | Páginas adicionais + integração com API | Services, regras de negócio + melhorias de arquitetura | Testes E2E (Home, navegação, formulários) | Validar testes localmente + apoio na criação de cenários E2E |
+| **3** | Integração completa + ajustes UI/UX | Docker + CI/CD (GitHub Actions + deploy pipeline) | Validação CI + automação Cypress no pipeline | Validar CI/CD + apoiar integração dos testes no pipeline |
+| **4** | Ajustes finais + refinamento visual | Ajustes finais + deploy backend | Testes finais + regressão completa | Monitoramento, validação de deploy e testes de robustez |
+
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 
 ---
 
@@ -362,6 +460,7 @@ Este cronograma organiza a divisão de responsabilidades entre os membros do tim
 
 Uma tarefa está pronta quando:
 
+<<<<<<< HEAD
 - Código funcional
 - Segue padrão do projeto
 - Sem erros no console
@@ -371,5 +470,16 @@ Uma tarefa está pronta quando:
 - PR criado e aprovado
 - CI verde
 - Deploy refletido online
+=======
+-  Código funcional
+-  Segue padrão do projeto
+-  Sem erros no console
+-  Funciona com mock/fallback
+-  Testes passam localmente
+-  Commit realizado corretamente
+-  PR criado e aprovado
+-  CI verde
+-  Deploy refletido online
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 
 ---

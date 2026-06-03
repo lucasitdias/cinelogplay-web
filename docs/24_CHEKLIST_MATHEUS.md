@@ -23,10 +23,17 @@ Definir **todas as tarefas de testes (QA)** que Matheus e Winley deverão realiz
 
 ### 1: Setup Cypress
 
+<<<<<<< HEAD
 - [x] Instalar Cypress 14.5.4
 
   ```bash
   pnpm add -D cypress@14.5.4
+=======
+- [x] Instalar Cypress v13.x
+
+  ```bash
+  pnpm add -D cypress@13
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
   ```
 
 - [x] Criar `cypress.config.js` na raiz:
@@ -55,12 +62,18 @@ Definir **todas as tarefas de testes (QA)** que Matheus e Winley deverão realiz
   ```
 
 - [x] Criar estrutura de pastas:
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
   ```
   cypress/
   ├── e2e/
   │   ├── home.cy.js
+<<<<<<< HEAD
   │   ├── navegacao.cy.js
+=======
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
   │   ├── diretores.cy.js
   │   ├── contato.cy.js
   │   └── responsividade.cy.js
@@ -469,7 +482,11 @@ Bloqueio: [o que está impedindo]
 
 ## Critério de Sucesso
 
+<<<<<<< HEAD
 - Todos os 5 arquivos E2E criados (home, navegacao, diretores, contato e responsividade)
+=======
+- Todos 7 arquivos de teste criados (home, navegação, diretores, contato, responsividade + fixtures)
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 - 100% dos testes passando localmente
 - 100% dos testes passando no CI (GitHub Actions)
 - CI bloqueador funcionando (merge impossível se falhar)
@@ -485,13 +502,21 @@ Bloqueio: [o que está impedindo]
 #### Branch Management
 
 - [ ] Criar feature branch: `git checkout -b feature/[area]`
+<<<<<<< HEAD
 - [ ] Manter branch atualizada: `git pull origin dev`
 - [ ] Sincronizar branch dev: git pull origin dev
+=======
+- [ ] Manter branch atualizada: `git pull origin main`
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 - [ ] Commits descritivos: `feat:`, `fix:`, `docs:`, `test:`
 
 #### Pull Requests
 
+<<<<<<< HEAD
 - [ ] Criar PR para dev com descrição clara
+=======
+- [ ] Criar PR para main com descrição clara
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 - [ ] Aguardar 1 aprovação mínima
 - [ ] Garantir CI verde antes de merge
 - [ ] Resolver comentários antes de merge

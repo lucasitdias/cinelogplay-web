@@ -19,8 +19,13 @@
   - [Hotfix](#hotfix)
     - [Regras:](#regras)
   - [Fluxo de uso da branch](#fluxo-de-uso-da-branch)
+<<<<<<< HEAD
     - [Criação da branch:](#criação-da-branch)
     - [Atualizar branch com `dev`](#atualizar-branch-com-dev)
+=======
+      - [Criação da branch:](#criação-da-branch)
+    - [Atualizar branch com `dev`:](#atualizar-branch-com-dev)
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
     - [Depois do merge em `dev`:](#depois-do-merge-em-dev)
   - [Operações úteis do git](#operações-úteis-do-git)
     - [Listar branches:](#listar-branches)
@@ -87,12 +92,20 @@ dev (HOMOLOGAÇÃO)
 - **Público:** Produção
 
 **Características:**
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 - Código sempre funcional
 - Versões ready-to-ship
 - Nenhum push direto permitido
 - Requer 1 aprovação + CI verde
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ### `dev` (HOMOLOGAÇÃO)
 
 - **Status:** Integração contínua
@@ -102,11 +115,18 @@ dev (HOMOLOGAÇÃO)
 - **Privado:** Teste e validação
 
 **Características:**
+<<<<<<< HEAD
 
 - Integra todas as features
 - Base para todas as `feature/*`
 - Testada continuamente (CI)
 - Sempre atualizada com últimas mudanças
+=======
+-  Integra todas as features
+-  Base para todas as `feature/*`
+-  Testada continuamente (CI)
+-  Sempre atualizada com últimas mudanças
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 
 ### `feature/*` (DESENVOLVIMENTO)
 
@@ -115,6 +135,10 @@ dev (HOMOLOGAÇÃO)
 - **Proteção:** Nenhuma
 - **Deploy:** Nenhum
 - **Público:** Privado (desenvolvedor)
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 
 #### Áreas válidas:
 
@@ -124,8 +148,13 @@ dev (HOMOLOGAÇÃO)
 - `devops` → CI/CD/infraestrutura (Henrique/Winley)
 - `docs` → Documentação (Todos)
 
+<<<<<<< HEAD
 #### Exemplos CORRETOS:
 
+=======
+
+#### Exemplos CORRETOS:
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ```bash
 feature/frontend-home
 feature/frontend-navbar
@@ -153,7 +182,10 @@ feature/docs-atualizacao-workflow
 ```
 
 #### Exemplos ERRADOS:
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ```bash
  feature/home (sem área)
  Feature/Frontend (maiúscula)
@@ -183,7 +215,11 @@ Após correção:
 ### Features:
 
 ```id="naming-feature"
+<<<<<<< HEAD
 feature/[area]-nome-da-feature
+=======
+feature/nome-da-feature
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ```
 
 ---
@@ -280,16 +316,26 @@ Abrir PR no GitHub (base: dev)
 
 ---
 
+<<<<<<< HEAD
 ### Atualizar branch com `dev`
 
 Caso a branch `dev` receba novas alterações durante o desenvolvimento:
+=======
+### Atualizar branch com `dev`:
+
+Se `dev` foi atualizada durante seu trabalho:
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 
 ```bash
 git checkout dev
 git pull origin dev
+<<<<<<< HEAD
 
 git checkout feature/seu-branch
 
+=======
+git checkout feature/seu-branch
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 git merge dev
 # Resolver conflitos se houver
 ```
@@ -310,31 +356,46 @@ git push origin --delete feature/seu-branch
 ## Operações úteis do git
 
 ### Listar branches:
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ```bash
 git branch -a
 ```
 
 ### Ver qual branch está atual:
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ```bash
 git branch --show-current
 ```
 
 ### Deletar branch local:
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ```bash
 git branch -d feature/seu-branch
 ```
 
 ### Deletar branch remota:
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ```bash
 git push origin --delete feature/seu-branch
 ```
 
 ### Visualizar histórico:
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ```bash
 git log --oneline
 ```
@@ -345,6 +406,7 @@ git log --oneline
 
 ### SEMPRE:
 
+<<<<<<< HEAD
 - Criar `feature/*` a partir de `dev` atualizada
 - Usar nomenclatura padrão: `feature/[area]-[nome]`
 - Manter branch atualizada com `dev`
@@ -359,6 +421,22 @@ git log --oneline
 - Ignorar conflitos
 - Deixar branch desatualizada dias
 - Fazer merge sem PR e aprovação
+=======
+-  Criar `feature/*` a partir de `dev` atualizada
+-  Usar nomenclatura padrão: `feature/[area]-[nome]`
+-  Manter branch atualizada com `dev`
+-  Abrir PR antes de merge
+-  Deletar branch após merge
+
+### NUNCA:
+
+-  Trabalhar direto em `main` (protegida)
+-  Trabalhar direto em `dev` (protegida)
+-  Criar branch de `main` (sempre de `dev`)
+-  Ignorar conflitos
+-  Deixar branch desatualizada dias
+-  Fazer merge sem PR e aprovação
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 
 ---
 

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 packages:
   - frontend
   - backend
@@ -6,3 +7,11 @@ onlyBuiltDependencies:
   - cypress
   - esbuild
   - unrs-resolver
+=======
+# Define os pacotes que fazem parte do workspace do pnpm
+packages:
+  # Pasta do frontend
+  - "frontend"
+  # Pasta do backend
+  - "backend"
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8

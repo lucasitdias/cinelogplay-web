@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 ---
 <p align="center"> <img src="img/cinelogplay.png" alt="CinelogPlay Banner" width="600"/> </p>
+=======
+
+---
+<p align="center"> <img src="img/cinelogplay.png" alt="CinelogPlay Banner" width="600"/> </p>
+
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ---
 
 ## Índice
@@ -93,7 +100,11 @@ Responsável por:
 
 ### Backend <a id="backend"></a>
 
+<<<<<<< HEAD
 - Node.js (v24.16.0)
+=======
+- Node.js (v20 LTS)
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 - Express.js
 
 Responsável por:
@@ -132,7 +143,11 @@ Responsável por:
 
 ### Pré-requisitos
 
+<<<<<<< HEAD
 - Node.js v24.16.0
+=======
+- Node.js v20+
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 - pnpm
 - Git
 - Docker Desktop
@@ -144,7 +159,11 @@ Responsável por:
 ```bash
 git clone <url-do-repo>
 cd CinelogPlay
+<<<<<<< HEAD
 ```
+=======
+````
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 
 ---
 
@@ -190,9 +209,15 @@ pnpm run test:ci
 
 ### Regras importantes:
 
+<<<<<<< HEAD
 - NÃO depender do backend real
 - Uso obrigatório de `cy.intercept`
 - Testes devem passar sempre
+=======
+* NÃO depender do backend real
+* Uso obrigatório de `cy.intercept`
+* Testes devem passar sempre
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 
 ---
 
@@ -204,9 +229,15 @@ O projeto possui pipeline automatizado com **GitHub Actions**.
 
 A cada push:
 
+<<<<<<< HEAD
 - Instala dependências
 - Sobe servidor
 - Executa testes Cypress
+=======
+* Instala dependências
+* Sobe servidor
+* Executa testes Cypress
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 
 ---
 
@@ -214,8 +245,13 @@ A cada push:
 
 Após sucesso no CI:
 
+<<<<<<< HEAD
 - Frontend → deploy automático (Vercel ou GitHub Pages)
 - Backend → deploy automático (Render)
+=======
+* Frontend → deploy automático (Vercel ou GitHub Pages)
+* Backend → deploy automático (Render)
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 
 ---
 
@@ -223,11 +259,19 @@ Após sucesso no CI:
 
 ### Frontend
 
+<<<<<<< HEAD
 - Vercel ou GitHub Pages
 
 ### Backend
 
 - Render
+=======
+* Vercel ou GitHub Pages
+
+### Backend
+
+* Render
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 
 ---
 
@@ -253,6 +297,7 @@ Toda a documentação está organizada na pasta `/docs`.
 
 ### Principais documentos:
 
+<<<<<<< HEAD
 - 01_ESCOPO_DO_PROJETO.md
 - 02_REQUISITOS.md
 - 03_ARQUITETURA.md
@@ -281,6 +326,35 @@ Toda a documentação está organizada na pasta `/docs`.
 - 26_CHECKLIST_HENRIQUE.md
 - 27_CHEKLIST_WINLEY.md
 - 28_APRESENTACAO.md
+=======
+* 01_ESCOPO_DO_PROJETO.md
+* 02_REQUISITOS.md
+* 03_ARQUITETURA.md
+* 04_TECNOLOGIAS_DO_PROJETO.md
+* 05_AMBIENTE_WINDOWS.md
+* 06_AMBIENTE_LINUX.md
+* 07_CONFIG_REPO_GITHUB.md
+* 08_WORKFLOW.md
+* 09_VERSIONAMENTO.md
+* 10_BRANCHING.md
+* 11_RESPONSABILIDADES.md
+* 12_CONTRIBUICAO.md
+* 13_UI_GUIDELINES.md
+* 14_DEFINITION_OF_DONE.md
+* 15_TEST_PLAN.md
+* 16_CYPRESS_E2E.md
+* 17_RESILIENCE.md
+* 18_CI_CD.md
+* 19_DEPLOY_(VERCEL_RENDER).md
+* 20_ESTRUTURA_DOC.md
+* 21_CHANGELOG.md
+* 22_EXTENSOES_VSCODE.md
+* 23_CONFIGURACAO_EXTENSOES_VSCODE.md
+* 24_CHECKLIST_MATHEUS.md
+* 25_CHECKLIST_LUCAS.md
+* 26_CHECKLIST_HENRIQUE.md
+* 27_APRESENTACAO.md
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 
 ---
 
@@ -351,10 +425,17 @@ dev → main
 
 ### Regras
 
+<<<<<<< HEAD
 - Nunca fazer commit direto na `main`
 - Nunca pular a `dev`
 - Toda feature passa por PR
 - CI deve estar verde antes do merge
+=======
+* Nunca fazer commit direto na `main`
+* Nunca pular a `dev`
+* Toda feature passa por PR
+* CI deve estar verde antes do merge
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 
 ---
 
@@ -362,8 +443,13 @@ dev → main
 
 Utilizamos:
 
+<<<<<<< HEAD
 - **Versionamento Semântico**
 - **Keep a Changelog**
+=======
+* **Versionamento Semântico**
+* **Keep a Changelog**
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 
 Formato:
 
@@ -377,11 +463,19 @@ MAJOR.MINOR.PATCH
 
 Uma tarefa só é considerada finalizada quando:
 
+<<<<<<< HEAD
 - Código implementado
 - Testes passando
 - PR aprovado
 - CI verde
 - Sem erros
+=======
+* Código implementado
+* Testes passando
+* PR aprovado
+* CI verde
+* Sem erros
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 
 ---
 
@@ -389,9 +483,15 @@ Uma tarefa só é considerada finalizada quando:
 
 O sistema foi projetado para:
 
+<<<<<<< HEAD
 - Não depender do backend nos testes
 - Utilizar mock de dados
 - Evitar quebra da aplicação
+=======
+* Não depender do backend nos testes
+* Utilizar mock de dados
+* Evitar quebra da aplicação
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 
 ---
 
@@ -399,21 +499,37 @@ O sistema foi projetado para:
 
 O projeto garante:
 
+<<<<<<< HEAD
 - Código organizado
 - Testes automatizados
 - Pipeline CI/CD
 - Deploy automático
 - Documentação completa
+=======
+* Código organizado
+* Testes automatizados
+* Pipeline CI/CD
+* Deploy automático
+* Documentação completa
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 
 ---
 
 ## Resultado <a id="resultado"></a>
 
+<<<<<<< HEAD
 - Sistema funcional
 - Testado
 - Automatizado
 - Online
 - Documentado
+=======
+* Sistema funcional
+* Testado
+* Automatizado
+* Online
+* Documentado
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 
 ---
 
@@ -421,8 +537,14 @@ O projeto garante:
 
 Este projeto foi desenvolvido seguindo boas práticas.
 
+<<<<<<< HEAD
 - Escalabilidade
 - Manutenibilidade
 - Confiabilidade
+=======
+* Escalabilidade
+* Manutenibilidade
+* Confiabilidade
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 
 ---
