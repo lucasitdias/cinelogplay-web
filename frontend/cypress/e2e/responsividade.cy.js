@@ -40,7 +40,8 @@ describe("Responsividade", () => {
   it("navega para /filmes em mobile", () => {
     cy.viewport(375, 667);
     cy.visit("/");
-    cy.get("a[href='/filmes']").first().click();
+    cy.get(".header-hamburger").should("be.visible").click();
+    cy.get("a[href='/filmes']").filter(":visible").first().click();
     cy.url().should("include", "/filmes");
   });
 });
