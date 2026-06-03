@@ -11,7 +11,7 @@ on:
       - main
 
 env:
-  NODE_VERSION: "20"
+  NODE_VERSION: "24"
 
 jobs:
   # ========================================
@@ -27,7 +27,7 @@ jobs:
       - name: Clonar repositório
         uses: actions/checkout@v4
 
-      # Configurar Node.js v20 (garante compatibilidade com pnpm e Vite)
+      # Configurar Node.js v24.16.0 (garante compatibilidade com pnpm e Vite)
       - name: Configurar Node.js ${{ env.NODE_VERSION }}
         uses: actions/setup-node@v4
         with:

@@ -1,6 +1,10 @@
 # Resiliência do Sistema — CinelogPlay
 
+<<<<<<< HEAD
+## Proposta
+=======
 ## Porposta
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 
 Garantir que o sistema continue funcionando corretamente mesmo diante de falhas externas, principalmente:
 
@@ -48,8 +52,13 @@ A resiliência do CinelogPlay é baseada em dois pilares:
 
 ```
 
+<<<<<<< HEAD
+/frontend/src/data/filmes.json
+/frontend/src/data/diretores.json
+=======
 /frontend/data/filmes.json
 /frontend/data/diretores.json
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 
 ```
 
@@ -77,12 +86,25 @@ VITE_API_URL=https://seu-backend.onrender.com
 const API_URL = import.meta.env.VITE_API_URL || "";
 const USE_MOCK = !API_URL;
 
+<<<<<<< HEAD
+import filmes from "../data/filmes.json";
+
+async function getFilmes() {
+  if (USE_MOCK || !API_URL) {
+    return filmes.data;
+  }
+
+  return fetch(`${API_URL}/api/filmes`)
+    .then((res) => res.json())
+    .then((json) => json.data);
+=======
 async function getFilmes() {
   if (USE_MOCK || !API_URL) {
     return fetch("/data/filmes.json").then((res) => res.json());
   }
 
   return fetch(`${API_URL}/api/filmes`).then((res) => res.json());
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 }
 ```
 
@@ -94,7 +116,13 @@ async function getFilmes() {
 - Sempre exibe dados
 - Funciona offline
 
+<<<<<<< HEAD
+## Resiliência no Backend
+
+Garantir que a API continue respondendo mesmo sem banco de dados.
+=======
 ### Garantir que a API continue respondendo mesmo sem banco de dados.
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 
 ---
 
@@ -127,7 +155,14 @@ const mockFilmes = require("./mock/filmes.json");
 
 app.get("/api/filmes", async (req, res) => {
   if (!dbConnected) {
+<<<<<<< HEAD
+    return res.json({
+      success: true,
+      data: mockFilmes,
+    });
+=======
     return res.json(mockFilmes);
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
   }
 
   // consulta real no banco
@@ -139,8 +174,13 @@ app.get("/api/filmes", async (req, res) => {
 ### Estrutura obrigatória
 
 ```
+<<<<<<< HEAD
+/backend/src/mock/filmes.json
+/backend/src/mock/diretores.json
+=======
 /backend/mock/filmes.json
 /backend/mock/diretores.json
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ```
 
 ---

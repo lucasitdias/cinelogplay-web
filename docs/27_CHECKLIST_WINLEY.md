@@ -571,12 +571,21 @@ Deploy bloqueado: [motivo]
 #### Branch Management
 
 - [ ] Criar feature branch: `git checkout -b feature/[area]`
+<<<<<<< HEAD
+- [ ] Manter branch atualizada: `git pull origin dev`
+- [ ] Sincronizar branch dev: git pull origin dev
+=======
 - [ ] Manter branch atualizada: `git pull origin main`
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 - [ ] Commits descritivos: `feat:`, `fix:`, `docs:`, `test:`
 
 #### Pull Requests
 
+<<<<<<< HEAD
+- [ ] Criar PR para dev com descrição clara
+=======
 - [ ] Criar PR para main com descrição clara
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 - [ ] Aguardar 1 aprovação mínima
 - [ ] Garantir CI verde antes de merge
 - [ ] Resolver comentários antes de merge

@@ -1,26 +1,112 @@
-<!-- Declaração do tipo de documento -->
 <!doctype html>
-<!-- Define o idioma da página -->
 <html lang="pt-BR">
   <head>
-    <!-- Define a codificação de caracteres -->
     <meta charset="UTF-8" />
-    <!-- Configura a viewport para responsividade -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Título da página -->
-    <title>Filmes - CinelogPlay</title>
-    <!-- Importa o arquivo de estilos CSS -->
-    <link rel="stylesheet" href="../css/style.css" />
+    <title>CatÃ¡logo de Filmes - CineLogPlay</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="../src/css/style.css" />
   </head>
   <body>
-    <!-- Container principal da aplicação -->
-    <div id="app">
-      <!-- Título da seção de filmes -->
-      <h1>Catálogo de Filmes</h1>
-      <!-- Lista de filmes -->
-      <div id="filmes-list"></div>
-    </div>
-    <!-- Importa o script principal da aplicação -->
-    <script src="../js/main.js"></script>
+    <!-- NAVBAR -->
+    <nav class="navbar-custom">
+      <button class="menu-toggle" id="menuToggle">
+        <i class="bi bi-list"></i>
+      </button>
+
+      <a href="/pages/home.html" class="navbar-brand">
+        <img src="/logo/cinelogplay.png" alt="CineLogPlay" />
+      </a>
+
+      <div class="user-profile-wrapper">
+        <button class="user-profile" id="userProfileBtn">
+          <div class="user-avatar">
+            <span>LD</span>
+          </div>
+          <div class="user-info">
+            <div class="user-name">Lucas Dias</div>
+            <div class="user-email">lucas@email.com</div>
+          </div>
+        </button>
+
+        <div class="user-dropdown" id="userDropdown">
+          <a href="#"><i class="bi bi-person-circle"></i> Perfil</a>
+          <a href="/pages/filmes.html"><i class="bi bi-heart"></i> Favoritos</a>
+          <a href="#"><i class="bi bi-gear"></i> ConfiguraÃ§Ãµes</a>
+          <hr style="margin: 0.5rem 0; opacity: 0.3" />
+          <a href="#" class="logout"
+            ><i class="bi bi-box-arrow-left"></i> Sair</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <aside class="sidebar" id="sidebar">
+      <ul class="sidebar-nav">
+        <li>
+          <a href="/pages/home.html"> <i class="bi bi-house-door"></i> Home </a>
+        </li>
+        <li>
+          <a href="/pages/filmes.html" class="active">
+            <i class="bi bi-film"></i> CatÃ¡logo de Filmes
+          </a>
+        </li>
+        <li>
+          <a href="/pages/diretores.html">
+            <i class="bi bi-camera-video"></i> Diretores
+          </a>
+        </li>
+        <li>
+          <a href="/pages/contato.html">
+            <i class="bi bi-envelope"></i> Contato
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main id="app">
+      <div class="container-fluid py-5">
+        <div class="row mb-5">
+          <div class="col-12">
+            <div class="container">
+              <h1 class="display-5 fw-light mb-3">CatÃ¡logo de Filmes</h1>
+              <p class="text-secondary fs-5">ConheÃ§a todos os nossos filmes</p>
+
+              <div class="mt-4">
+                <input
+                  type="text"
+                  id="pesquisa-input"
+                  class="form-control form-control-lg"
+                  placeholder="Pesquisar por tÃ­tulo, gÃªnero..."
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <div class="container">
+              <div id="filmes-container"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="/src/js/filmes.js"></script>
   </body>
 </html>

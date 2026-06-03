@@ -1,7 +1,13 @@
 # Checklist — Backend + DevOps
 
 #### Responsável: Henrique (IronVisuals)
+<<<<<<< HEAD
+
 #### Apoio: Lucas (Backend), Winley (DevOps)
+
+=======
+#### Apoio: Lucas (Backend), Winley (DevOps)
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 #### Referência: `11_RESPONSABILIDADES.md` → Seções "BACKEND" + "DEVOPS"
 
 ---
@@ -21,11 +27,16 @@ Definir **todas as tarefas de backend e DevOps** que Henrique deve realizar, gar
 
 ### Backend
 
+<<<<<<< HEAD
+### 1: Setup e Estrutura
+
+=======
 
 
 ### 1: Setup e Estrutura
 
 
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 #### Criar Pasta Backend
 
 ```bash
@@ -39,6 +50,23 @@ cd backend
 {
   "name": "cinelogplay-backend",
   "version": "1.0.0",
+<<<<<<< HEAD
+  "description": "API backend CinelogPlay",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "node --watch src/server.js",
+    "start": "node src/server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "pg": "^8.11.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.0"
+=======
   "description": "API backend para CinelogPlay",
   "main": "server.js",
   "type": "module",
@@ -58,6 +86,7 @@ cd backend
   },
   "devDependencies": {
     "nodemon": "^3.x"
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
   }
 }
 ```
@@ -90,6 +119,29 @@ CORS_ORIGIN=http://localhost:5173,https://seu-frontend.vercel.app
 ```
 backend/
 ├── controllers/
+<<<<<<< HEAD
+│   ├── filmes.controller.js
+│   ├── diretores.controller.js
+│   ├── avaliacao.controller.js
+│   └── contato.controller.js
+├── routes/
+│   ├── filmes.routes.js
+│   ├── autores.routes.js
+│   ├── avaliacao.routes.js
+│   ├── diretores.routes.js
+│   ├── favorito.routes.js
+│   └── contato.js
+├── services/
+│   ├── avaliacao.service.js
+│   ├── filmes.service.js
+│   ├── diretores.service.js
+│   └── contato.service.js
+├── config/
+│   └── db.js
+├── mock/
+│   ├── filmes.json
+│   └── diretores.json
+=======
 │   ├── filmesController.js
 │   ├── diretoresController.js
 │   └── contatoController.js
@@ -108,6 +160,7 @@ backend/
 │   ├── filmes.json
 │   ├── diretores.json
 │   └── mensagens.json
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ├── .env.example
 ├── server.js
 └── package.json
@@ -186,6 +239,12 @@ app.use((err, req, res, next) => {
   });
 });
 
+<<<<<<< HEAD
+// INICIAR SERVIDOR
+
+app.listen(PORT, HOST, () => {
+  console.log(` CinelogPlay API rodando em http://${HOST}:${PORT}`);
+=======
 
 // INICIAR SERVIDOR
 
@@ -193,6 +252,7 @@ app.use((err, req, res, next) => {
 app.listen(PORT, HOST, () => {
   console.log(` CinelogPlay API rodando em http://${HOST}:${PORT}`);
   console.log(` Documentação: http://${HOST}:${PORT}/api/docs`);
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 });
 
 export default app;
@@ -217,7 +277,10 @@ pnpm install
 
 ### 3: Mock Data
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 #### Criar `backend/mock/filmes.json`
 
 - [ ] `filmes.json` criado
@@ -243,7 +306,10 @@ pnpm install
 - [ ] `diretoresService.js` criado
 - [ ] Métodos: `getAll()`, `getById()`
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 #### Criar `backend/services/contatoService.js`
 
 - [ ] `contatoService.js` criado
@@ -283,7 +349,10 @@ pnpm install
 - [ ] `diretores.js` criado
 - [ ] Rotas: `GET /`, `GET /:id`
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 #### Criar `backend/routes/contato.js`
 
 - [ ] `contato.js` criado
@@ -341,7 +410,11 @@ curl -X POST http://localhost:3001/api/contato \
 #### Criar `docker-compose.yml` (Raiz do Projeto)
 
 ```yaml
+<<<<<<< HEAD
+version: "3.8"
+=======
 version: '3.8'
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 
 services:
   postgres:
@@ -397,11 +470,18 @@ networks:
 - [ ] Backend conectado ao banco
 - [ ] Health check implementado
 
+<<<<<<< HEAD
+#### Criar `backend/Dockerfile`
+
+```dockerfile
+FROM node:24.16.0-alpine
+=======
 
 #### Criar `backend/Dockerfile`
 
 ```dockerfile
 FROM node:20-alpine
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 
 WORKDIR /app
 
@@ -416,7 +496,11 @@ CMD ["npm", "start"]
 ```
 
 - [ ] `Dockerfile` criado
+<<<<<<< HEAD
+- [ ] Node 24 como base
+=======
 - [ ] Node 20 como base
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 - [ ] Porta 3001 exposta
 
 #### Testar Docker Localmente
@@ -444,6 +528,12 @@ docker-compose down
 
 ### 9: GitHub Actions CI/CD
 
+<<<<<<< HEAD
+#### Criar `.github/workflows/ci-cd.yml`
+
+- Arquivo: `.github/workflows/ci-cd.yml`
+
+=======
 #### Criar `.github/workflows/ci.yml` e depois crie `cd.yml`
 
 - Arquivo: `.github/workflows/ci.yml`
@@ -524,6 +614,7 @@ jobs:
 ```
 
 - [ ] `.github/workflows/ci.yml` de forma separadas `cd.yml`
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 - [ ] CI roda em cada PR e push
 - [ ] CD roda após CI bem-sucedido
 - [ ] Artifacts capturados se falhar
@@ -577,6 +668,10 @@ curl https://seu-backend.onrender.com/api/filmes
 ### 11: Integração Backend ↔ Frontend
 
 - [ ] Lucas atualizar `.env` do frontend com URL do Render:
+<<<<<<< HEAD
+
+=======
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
   ```
   VITE_API_URL=https://seu-backend.onrender.com
   ```
@@ -696,17 +791,33 @@ Variáveis de ambiente: [o que está faltando]
 ### Versionamento e Workflow
 
 #### Branch Management
+<<<<<<< HEAD
+
+- [ ] Criar feature branch: `git checkout -b feature/[area]`
+- [ ] Manter branch atualizada: `git pull origin dev`
+- [ ] Sincronizar branch dev: git pull origin dev
+- [ ] Commits descritivos: `feat:`, `fix:`, `docs:`, `test:`
+
+#### Pull Requests
+
+- [ ] Criar PR para dev com descrição clara
+=======
 - [ ] Criar feature branch: `git checkout -b feature/[area]`
 - [ ] Manter branch atualizada: `git pull origin main`
 - [ ] Commits descritivos: `feat:`, `fix:`, `docs:`, `test:`
 
 #### Pull Requests
 - [ ] Criar PR para main com descrição clara
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 - [ ] Aguardar 1 aprovação mínima
 - [ ] Garantir CI verde antes de merge
 - [ ] Resolver comentários antes de merge
 
 #### Documentação
+<<<<<<< HEAD
+
+=======
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 - [ ] Atualizar docs se fazer mudanças na arquitetura
 - [ ] Documentar novos endpoints (se backend)
 - [ ] Documentar novos testes (se testes)
@@ -716,6 +827,10 @@ Variáveis de ambiente: [o que está faltando]
 # `Deploy e Apresentação`
 
 #### Antes da Apresentação
+<<<<<<< HEAD
+
+=======
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 - [ ] Frontend funciona sem backend
 - [ ] Backend funciona sem banco
 - [ ] Testes passam localmente
@@ -723,6 +838,10 @@ Variáveis de ambiente: [o que está faltando]
 - [ ] Deploy online funcionando
 
 #### Checklist de Apresentação
+<<<<<<< HEAD
+
+=======
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 - [ ] Repositório no GitHub acessível
 - [ ] README.md completo e atualizado
 - [ ] Projeto rodando localmente
@@ -738,6 +857,16 @@ Variáveis de ambiente: [o que está faltando]
 
 Este cronograma organiza a divisão de responsabilidades entre os membros do time, Lucas, Matheus e Henrique, garantindo fluxo contínuo de desenvolvimento, testes e DevOps.
 
+<<<<<<< HEAD
+> ## Distribuição de Responsabilidades
+
+| Semana | `Lucas (Frontend)`                                    | `Henrique (Backend+DevOps)`                               | `Matheus (Testes)`                           | `Winley (Apoio Testes + DevOps)`                             |
+| ------ | ----------------------------------------------------- | --------------------------------------------------------- | -------------------------------------------- | ------------------------------------------------------------ |
+| **1**  | Estrutura base (HTML, CSS, layout inicial, mock data) | Setup do backend (Express, rotas iniciais, estrutura API) | Setup do Cypress + fixtures iniciais         | Validar setup do Cypress + estrutura inicial do projeto      |
+| **2**  | Páginas adicionais + integração com API               | Services, regras de negócio + melhorias de arquitetura    | Testes E2E (Home, navegação, formulários)    | Validar testes localmente + apoio na criação de cenários E2E |
+| **3**  | Integração completa + ajustes UI/UX                   | Docker + CI/CD (GitHub Actions + deploy pipeline)         | Validação CI + automação Cypress no pipeline | Validar CI/CD + apoiar integração dos testes no pipeline     |
+| **4**  | Ajustes finais + refinamento visual                   | Ajustes finais + deploy backend                           | Testes finais + regressão completa           | Monitoramento, validação de deploy e testes de robustez      |
+=======
 
 > ## Distribuição de Responsabilidades
 
@@ -748,6 +877,7 @@ Este cronograma organiza a divisão de responsabilidades entre os membros do tim
 | **3** | Integração completa + ajustes UI/UX | Docker + CI/CD (GitHub Actions + deploy pipeline) | Validação CI + automação Cypress no pipeline | Validar CI/CD + apoiar integração dos testes no pipeline |
 | **4** | Ajustes finais + refinamento visual | Ajustes finais + deploy backend | Testes finais + regressão completa | Monitoramento, validação de deploy e testes de robustez |
 
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 
 ---
 
@@ -755,6 +885,19 @@ Este cronograma organiza a divisão de responsabilidades entre os membros do tim
 
 Uma tarefa está pronta quando:
 
+<<<<<<< HEAD
+- Código funcional
+- Segue padrão do projeto
+- Sem erros no console
+- Funciona com mock/fallback
+- Testes passam localmente
+- Commit realizado corretamente
+- PR criado e aprovado
+- CI verde
+- Deploy refletido online
+
+---
+=======
 -  Código funcional
 -  Segue padrão do projeto
 -  Sem erros no console
@@ -766,3 +909,4 @@ Uma tarefa está pronta quando:
 -  Deploy refletido online
 
 ---
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8

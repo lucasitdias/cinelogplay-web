@@ -1,6 +1,8 @@
-# Define os pacotes que fazem parte do workspace do pnpm
 packages:
-  # Pasta do frontend
-  - "frontend"
-  # Pasta do backend
-  - "backend"
+  - frontend
+  - backend
+
+onlyBuiltDependencies:
+  - cypress
+  - esbuild
+  - unrs-resolver

@@ -8,11 +8,20 @@ Este documento define como o sistema CinelogPlay será testado, garantindo que t
 
 ## Estratégia de Testes
 
+<<<<<<< HEAD
+O projeto utiliza uma estratégia combinada de testes para validar tanto o frontend quanto o backend da aplicação.
+
+- Testes End-to-End (E2E) com Cypress
+- Testes automatizados de backend com Jest
+- Testes desacoplados do backend utilizando mocks (fixtures)
+- Validação de funcionamento em modo offline e cenários de fallback
+=======
 O projeto utiliza:
 
 - Testes End-to-End (E2E) com Cypress
 - Testes desacoplados do backend
 - Uso de mocks (fixtures)
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 
 ---
 
@@ -64,9 +73,27 @@ Validam:
 
 ---
 
+<<<<<<< HEAD
+### 6. Testes de Backend
+
+Validam:
+
+- Serviços
+- Controladores
+- Regras de negócio da API
+
+Executados utilizando Jest.
+
+---
+
+## Ambiente de Testes
+
+- URL base: `http://localhost:5173`
+=======
 ## Ambiente de Testes
 
 - URL base: `http://localhost:3000`
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 - Cypress configurado
 - Fixtures disponíveis
 
@@ -74,6 +101,38 @@ Validam:
 
 ## Estrutura de Testes
 
+<<<<<<< HEAD
+### Frontend
+
+```text
+frontend/
+└── cypress/
+    ├── e2e/
+    │   ├── contato.cy.js
+    │   ├── diretores.cy.js
+    │   ├── home.cy.js
+    │   └── responsividade.cy.js
+    │
+    ├── fixtures/
+    │   ├── contato.json
+    │   ├── diretores.json
+    │   └── filmes.json
+    │
+    └── support/
+        ├── commands.js
+        └── e2e.js
+
+frontend/cypress.config.js
+```
+
+### Backend
+
+```text
+backend/src/tests/
+├── contato.test.js
+├── diretores.test.js
+└── filmes.test.js
+=======
 ```
 
 cypress/
@@ -81,6 +140,7 @@ e2e/
 fixtures/
 cypress.config.js
 
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ```
 
 ---
@@ -183,14 +243,32 @@ Resultado esperado:
 
 ## Execução dos Testes
 
+<<<<<<< HEAD
+Frontend:
+
+```bash
+cd frontend
+
+=======
 ### Local
 
 ```bash
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 pnpm run dev
 pnpm run cy:open
 ```
 
+<<<<<<< HEAD
+Backend (quando necessário):
+
+```bash
+cd backend
+
+pnpm test
+```
+=======
 ---
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 
 ### CI (Automático)
 

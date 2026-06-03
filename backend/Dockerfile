@@ -1,3 +1,24 @@
+<<<<<<< HEAD
+FROM node:24-alpine
+
+WORKDIR /app
+
+RUN corepack enable && \
+    corepack prepare pnpm@10.12.4 --activate
+
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+COPY backend/package.json ./backend/package.json
+
+RUN pnpm install --frozen-lockfile
+
+COPY backend ./backend
+
+WORKDIR /app/backend
+
+EXPOSE 3001
+
+CMD ["pnpm", "dev"]
+=======
 # Usar a imagem base oficial do Node.js versão 20 com Alpine
 FROM node:20-alpine
 
@@ -21,3 +42,4 @@ EXPOSE 3001
 
 # Definir o comando padrão para iniciar a aplicação em modo de desenvolvimento
 CMD ["pnpm", "run", "dev"]
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8

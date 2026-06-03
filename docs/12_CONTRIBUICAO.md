@@ -10,6 +10,10 @@ Este documento define todas as regras obrigatórias para contribuição no proje
 - Colaboração eficiente entre os membros
 
 ---
+<<<<<<< HEAD
+
+=======
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ## `Leia Primeiro os seguintes documentos (Obrigatório):`
 
 1. **01_ESCOPO_DO_PROJETO.md** → Entender o projeto
@@ -27,6 +31,10 @@ Este documento define todas as regras obrigatórias para contribuição no proje
 ### ANTES DE COMEÇAR:
 
 - [ ] Sincronizar branch `dev` local com remoto
+<<<<<<< HEAD
+
+=======
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
   ```bash
   git checkout dev
   git pull origin dev
@@ -44,6 +52,10 @@ Este documento define todas as regras obrigatórias para contribuição no proje
 - [ ] Seguir arquitetura em `03_ARQUITETURA.md`
 
 - [ ] Fazer commits pequenos e frequentes
+<<<<<<< HEAD
+
+=======
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
   ```bash
   git commit -m "tipo: descrição clara"
   ```
@@ -102,6 +114,10 @@ Este documento define todas as regras obrigatórias para contribuição no proje
 ### APÓS MERGE:
 
 - [ ] Sincronizar ambiente local
+<<<<<<< HEAD
+
+=======
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
   ```bash
   git checkout dev
   git pull origin dev
@@ -163,6 +179,21 @@ tarefa → branch → commit → pull request → revisão → merge
 
 ## PROIBIDO (Crítico)
 
+<<<<<<< HEAD
+- Commit direto em `main` ( protegida)
+- Commit direto em `dev` (protegida)
+- PR sem descrição ou genérica
+- Código não testado localmente
+- Ignorar CI quebrado (testes falhando)
+- Fazer merge sem aprovação de colega
+- Deixar `console.log` no código
+- Ignorar padrões do projeto
+- Criar branch de `main` (sempre de `dev`)
+- Trabalhar muito tempo sem fazer push (risco de conflitos)
+
+---
+
+=======
 -  Commit direto em `main` ( protegida)
 -  Commit direto em `dev` (protegida)
 -  PR sem descrição ou genérica
@@ -177,6 +208,7 @@ tarefa → branch → commit → pull request → revisão → merge
 ---
 
 
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ## Comunicação (Obrigatório)
 
 ### Ao Abrir PR:
@@ -206,7 +238,11 @@ Verificando logs...
 
 ## Dúvidas?
 
+<<<<<<< HEAD
+- Consulte ordem abaixo:
+=======
   - Consulte ordem abaixo:
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 
 1. **01_ESCOPO_DO_PROJETO.md** → O que fazer
 2. **03_ARQUITETURA.md** → Como estruturar
@@ -222,8 +258,13 @@ Verificando logs...
 ### 1. Atualizar base
 
 ```bash
+<<<<<<< HEAD
+git checkout dev
+git pull origin dev
+=======
 git checkout main
 git pull origin main
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ```
 
 ---
@@ -265,7 +306,11 @@ git push origin feature/nome-da-feature
 
 No GitHub:
 
+<<<<<<< HEAD
+- Base: dev
+=======
 - Base: `main`
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 - Comparar com: sua branch
 
 ---
@@ -284,7 +329,11 @@ No GitHub:
 
 Após aprovação:
 
+<<<<<<< HEAD
+- Merge na `dev`
+=======
 - Merge na `main`
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 - Branch pode ser deletada
 
 ---
@@ -365,7 +414,11 @@ pnpm run cy:run
 Caso ocorra conflito:
 
 ```bash
+<<<<<<< HEAD
+git pull origin dev
+=======
 git pull origin main
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ```
 
 Resolver manualmente antes de continuar

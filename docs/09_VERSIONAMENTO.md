@@ -15,8 +15,14 @@ Definir como versionar código corretamente usando Git, garantindo:
 
 - Ferramenta: Git
 - Repositório: GitHub (privado)
+<<<<<<< HEAD
+- Branch principal: `main` (produção)
+- Branch de integração contínua: `dev` (homologação)
+- Branches de desenvolvimento: `feature/*`
+=======
 - Branch de integração contínua, homologação `dev` 
 - Branch principal: `main`
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 
 ```
 ┌─ PRODUÇÃO ─┐
@@ -41,6 +47,18 @@ Definir como versionar código corretamente usando Git, garantindo:
 
 ### Gestor de Pacotes:
 
+<<<<<<< HEAD
+- pnpm v10.12.4 (OBRIGATÓRIO)
+- Node.js: v24.16.0
+
+### Proibido Usar:
+
+- `npm`
+- `yarn`
+
+**Motivo ?**
+
+=======
 - pnpm v9.x (OBRIGATÓRIO)
 - Node.js: v20.20.2 LTS
 
@@ -49,6 +67,7 @@ Definir como versionar código corretamente usando Git, garantindo:
 -  `yarn`
 
 **Motivo ?** 
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 - Consistência entre máquinas
 - Sincronização com CI/CD
 - Evita problemas com lockfile
@@ -66,12 +85,21 @@ Definir como versionar código corretamente usando Git, garantindo:
 
 ## Estrutura de Branches
 
+<<<<<<< HEAD
+O projeto utiliza o padrão definido em `10_BRANCHING.md`:
+
+- `main` → versão estável (produção)
+- `dev` → integração contínua (homologação)
+- `feature/*` → desenvolvimento de funcionalidades (criadas a partir de `dev`)
+- `hotfix/*` → correções urgentes (criadas a partir de `main`)
+=======
 O projeto utiliza o padrão definido em `BRANCHING.md`:
 
 - `main` → versão estável
 - `feature/*` → desenvolvimento de funcionalidades
 - `fix/*` → correções de bugs
 - `hotfix/*` → correções urgentes
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 
 ---
 
@@ -101,6 +129,17 @@ tipo: descrição clara
 
 ### Tipos Permitidos:
 
+<<<<<<< HEAD
+| Tipo        | Quando Usar         | Exemplo                                  |
+| ----------- | ------------------- | ---------------------------------------- |
+| `feat:`     | Nova funcionalidade | `feat: implementar página diretores`     |
+| `fix:`      | Correção de bug     | `fix: erro na validação email`           |
+| `refactor:` | Melhoria interna    | `refactor: reorganizar estrutura pastas` |
+| `test:`     | Testes              | `test: testes Cypress home`              |
+| `docs:`     | Documentação        | `docs: atualizar README.md`              |
+| `style:`    | Formatação          | `style: formatar com Prettier`           |
+| `chore:`    | Ajustes gerais      | `chore: atualizar dependências`          |
+=======
 | Tipo | Quando Usar | Exemplo |
 |------|-----------|---------|
 | `feat:` | Nova funcionalidade | `feat: implementar página diretores` |
@@ -110,6 +149,7 @@ tipo: descrição clara
 | `docs:` | Documentação | `docs: atualizar README.md` |
 | `style:` | Formatação | `style: formatar com Prettier` |
 | `chore:` | Ajustes gerais | `chore: atualizar dependências` |
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 
 ---
 
@@ -142,16 +182,27 @@ git commit -m "feat: homepage completa com 50 mudanças"
  "fix bug"
  "wip"
 ```
+<<<<<<< HEAD
+
+=======
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ---
 
 ## Organização do Histórico
 
 O histórico **deve permitir**:
 
+<<<<<<< HEAD
+- Entender O QUE foi feito (descrição clara)
+- Saber QUANDO foi feito (timestamp)
+- Identificar QUEM fez (autor)
+- Rastrear problema até origem
+=======
 -  Entender O QUE foi feito (descrição clara)
 -  Saber QUANDO foi feito (timestamp)
 -  Identificar QUEM fez (autor)
 -  Rastrear problema até origem
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 
 ---
 
@@ -162,6 +213,12 @@ Toda alteração deve passar por PR:
 - Revisão obrigatória
 - Aprovação antes do merge
 - Histórico preservado
+<<<<<<< HEAD
+- CI deve estar aprovado
+- Pelo menos 1 aprovação é obrigatória
+- Comentários pendentes devem ser resolvidos
+=======
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 
 ---
 
@@ -170,8 +227,13 @@ Toda alteração deve passar por PR:
 Antes de trabalhar:
 
 ```bash id="update-branch"
+<<<<<<< HEAD
+git checkout dev
+git pull origin dev
+=======
 git checkout main
 git pull origin main
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ```
 
 ---
@@ -179,6 +241,10 @@ git pull origin main
 ## Fluxo de Commits
 
 #### 1. Ver o que mudou
+<<<<<<< HEAD
+
+=======
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ```bash
 git status
 ```
@@ -203,7 +269,11 @@ git push origin feature/seu-branch
 
 #### 5. Sincronização no ambiente de desenvolvimento
 
+<<<<<<< HEAD
+- `dev` atualiza merge:
+=======
   -  `dev` atualiza merge:
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 
 ```bash
 git merge dev
@@ -229,7 +299,12 @@ git branch -d feature/seu-branch
 Durante o desenvolvimento:
 
 ```bash id="sync-branch"
+<<<<<<< HEAD
+git checkout dev
+git pull origin dev
+=======
 git pull origin main
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ```
 
 Resolver conflitos antes de continuar
@@ -257,7 +332,10 @@ MAJOR.MINOR.PATCH
 - MINOR → novas funcionalidades
 - PATCH → correções
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ### Exemplos:
 
 - v1.0.0 → primeira versão
@@ -284,7 +362,10 @@ Toda mudança relevante deve:
 ```
 # Dependências
 node_modules/
+<<<<<<< HEAD
+=======
 pnpm-lock.yaml (apenas em monorepo)
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 
 # Ambiente
 .env
@@ -311,6 +392,10 @@ Thumbs.db
 npm-debug.log*
 pnpm-debug.log*
 ```
+<<<<<<< HEAD
+
+=======
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ---
 
 ## Responsabilidade
@@ -353,6 +438,10 @@ O versionamento está correto quando:
 - PRs são utilizados
 - Não há código perdido
 - Pipeline CI/CD funciona
+<<<<<<< HEAD
+- Nenhum commit direto foi realizado em main ou dev
+=======
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 
 ---
 

@@ -26,15 +26,26 @@ Garantir que o projeto tenha:
 ```
 cinelogplay-web/
 ├── frontend/
+<<<<<<< HEAD
+│   └── cypress/
+├── backend/
+=======
 ├── backend/
 ├── cypress/
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ├── docs/
 ├── .github/
 │   └── workflows/
 │       └── ci-cd.yml (será criado em 18_CI_CD.md)
 ├── .gitignore
 ├── README.md
+<<<<<<< HEAD
+├── package.json (raiz)
+├── pnpm-workspace.yaml
+└── pnpm-lock.yaml
+=======
 └── package.json (raiz)
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ```
 
 ---
@@ -162,6 +173,21 @@ Enforcement: **Active**
 > **Regras obrigatórias:**
 
 #### Restrict updates
+<<<<<<< HEAD
+
+- Impede push direto na branch main
+
+#### Restrict deletions
+
+- Impede deletar a branch
+
+#### Block force pushes
+
+- Impede uso de `git push --force`
+
+#### Pull Request (OBRIGATÓRIO)
+
+=======
 - Impede push direto na branch main
 
 #### Restrict deletions
@@ -171,24 +197,38 @@ Enforcement: **Active**
 - Impede uso de `git push --force`
 
 #### Pull Request (OBRIGATÓRIO)
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 - Todo código deve passar por PR
 
 **Required approvals:** `1`
 
 **Motivo:**
+<<<<<<< HEAD
+
+=======
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 - Garante revisão mínima
 - Aprovação por qualquer membro da equipe
 - Evita travar fluxo
 
 #### Require conversation resolution
+<<<<<<< HEAD
+
+- Obriga resolver comentários antes do merge
+
+=======
 - Obriga resolver comentários antes do merge
 
 
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 #### Dismiss stale approvals
 
 - Remove aprovação quando novos commits são adicionados
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 #### Require approval of most recent push
 
 - Exige nova aprovação após alterações
@@ -202,22 +242,42 @@ Enforcement: **Active**
 > **Regras obrigatórias:**
 
 #### Restrict deletions
+<<<<<<< HEAD
+
 - Impede deletar a branch
 
 #### Pull Request (OBRIGATÓRIO)
+
+=======
+- Impede deletar a branch
+
+#### Pull Request (OBRIGATÓRIO)
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 - Todo código deve passar por PR
 
 **Required approvals:** `1`
 
 **Motivo:**
+<<<<<<< HEAD
+
+=======
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 - Garante qualidade antes de integração
 - Evita merge de código quebrado
 - Permite fluxo contínuo
 
 #### Require conversation resolution
+<<<<<<< HEAD
+
 - Obriga resolver comentários antes do merge
 
 **Diferença de `main`:**
+
+=======
+- Obriga resolver comentários antes do merge
+
+**Diferença de `main`:**
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 - `dev` é menos restritiva (permite rebase e force push para correções)
 - `main` é totalmente restritiva (apenas merges seguros)
 
@@ -225,7 +285,10 @@ Enforcement: **Active**
 
 - Remove aprovação quando novos commits são adicionados
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 #### Require approval of most recent push
 
 - Exige nova aprovação após alterações
@@ -249,9 +312,20 @@ Enforcement: **Active**
 
 - Garante que código quebrado não seja mergeado
 
+<<<<<<< HEAD
+### Após validação completa da pipeline configurada em:
+
+`.github/workflows/ci-cd.yml`
+
+Ativar:
+
+Require status checks to pass:
+
+=======
 
 ### Quando CI estiver pronto:
 Ativar `Require status checks to pass`:
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 - [ ] GitHub Actions CI deve passar
 - [ ] Cypress deve ter sucesso
 
@@ -327,18 +401,29 @@ Situação atual:
 
 ---
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 # FLUXO DE TRABALHO EM EQUIPE
 
 ### Processo padrão:
 
 1. Atualizar `dev`:
+<<<<<<< HEAD
+
+=======
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ```bash
 git checkout dev
 git pull origin dev
 ```
 
 2. Criar branch feature a partir de `dev`:
+<<<<<<< HEAD
+
+=======
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ```bash
 git checkout -b feature/<area>-nome-da-feature
 ```
@@ -363,7 +448,10 @@ git checkout -b feature/<area>-nome-da-feature
    - Criar PR de `dev` para `main`
    - Merge em `main` (entrega para produção)
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 ---
 
 ## PROIBIDO
@@ -383,11 +471,21 @@ git checkout -b feature/<area>-nome-da-feature
 
 ---
 
+<<<<<<< HEAD
+## PRÓXIMOS PASSOS
+
+- Manter a pipeline CI/CD atualizada
+- Expandir cobertura de testes Cypress
+- Expandir cobertura de testes Jest
+- Integrar análise de qualidade (SonarQube)
+- Validar deploy automatizado conforme 18_CI_CD.md
+=======
 ## PRÓXIMO PASSO
 
 - Configurar GitHub Actions (CI/CD)
 - Adicionar testes automatizados
 - Integrar Cypress
+>>>>>>> 7add37e5ecd21a1d17887b133e8d9cfcf55131a8
 
 ---
 
