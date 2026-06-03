@@ -1,5 +1,8 @@
 ---
-<p align="center"> <img src="img/cinelogplay.png" alt="CinelogPlay Banner" width="600"/> </p>
+<p align="center">
+  <img src="frontend/public/logo/cinelogplay.png" alt="CinelogPlay Logo" width="600"/>
+</p>
+
 ---
 
 ## Índice
